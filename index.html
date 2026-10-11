@@ -7,9 +7,9 @@
 <meta name="description" content="מערכת שהופכת כל שיחה של האדמו״ר – ביידיש, בעברית או באנגלית – לתמלול מדויק, לנוסח בלשון הקודש ולחוברת מוכנה להדפסה. לומדת את הסגנון של החסידות שלכם בלבד. דברי קודש.">
 <meta property="og:title" content="דברי קודש – תמלול ועריכת שיחות קודש">
 <meta property="og:description" content="מהקלטה – לחוברת מוכנה להדפסה. ביידיש, בעברית ובאנגלית. מותאם לחסידות שלכם.">
-<link rel="canonical" href="https://keter-ai.github.io/">
+<link rel="canonical" href="https://divrei-kodesh.github.io/">
 <meta name="keywords" content="תמלול יידיש, תמלול שיחות קודש, תמלול שיעורים, תמלול דרשות, הקלדת הקלטות, עלון שבועי, הוצאה לאור, ספרי חסידות, חוברת להדפסה, תמלול הקלטות, חסידות, אדמו״ר">
-<meta property="og:url" content="https://keter-ai.github.io/"><meta property="og:image" content="https://keter-ai.github.io/dk-poster.jpg"><meta property="og:locale" content="he_IL"><meta property="og:type" content="website">
+<meta property="og:url" content="https://divrei-kodesh.github.io/"><meta property="og:image" content="https://divrei-kodesh.github.io/dk-poster.jpg"><meta property="og:locale" content="he_IL"><meta property="og:type" content="website">
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#13214a">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 rx=%2214%22 fill=%22%2313214a%22/%3E%3Cpath d=%22M32 6 C37 11 37 14 32 18 C27 14 27 11 32 6Z%22 fill=%22%23e7c77d%22/%3E%3Cpath d=%22M32 24 C25 19 16 19 9 22 V50 C16 47 25 47 32 52 C39 47 48 47 55 50 V22 C48 19 39 19 32 24Z%22 fill=%22%23d4a63f%22/%3E%3C/svg%3E">
@@ -374,6 +374,15 @@ table.cmp{width:100%;border-collapse:separate;border-spacing:0;background:#fff;b
 .more-f summary{cursor:pointer;color:var(--ink-2);font-weight:700;font-size:.95rem}
 .lead .btn-gold{width:100%;font-size:1.12rem;padding:1em}
 .alt-chat{display:inline-block;margin-top:14px;color:#e9d9ae;font-weight:700;background:none;border:0;cursor:pointer;font-size:1rem;text-decoration:underline;text-underline-offset:4px}
+
+.hvid{position:relative;border-radius:22px;overflow:hidden;box-shadow:0 40px 80px -30px rgba(0,0,0,.8),0 0 0 2px rgba(212,166,63,.55),0 0 60px -10px rgba(212,166,63,.45);transform:perspective(1200px) rotateY(-6deg) rotateX(2deg);transition:transform .6s;background:#0d1734;aspect-ratio:16/9}
+.hvid:hover{transform:none}
+.hvid video{display:block;width:100%;height:100%;object-fit:cover}
+.hvid .snd{position:absolute;bottom:14px;inset-inline-start:14px;border:0;border-radius:999px;padding:.65em 1.2em;font:800 1rem 'Assistant';background:linear-gradient(180deg,#e7c77d,#b8892b);color:#1a1405;cursor:pointer;box-shadow:0 8px 20px -6px rgba(0,0,0,.6);animation:pulse 2.6s infinite}
+.hvid .hv-badge{position:absolute;top:12px;inset-inline-end:12px;background:rgba(13,23,52,.8);color:#f3dfa8;font-weight:800;font-size:.85rem;padding:5px 12px;border-radius:999px;border:1px solid rgba(212,166,63,.5)}
+.hvid.live .snd,.hvid.live .hv-badge{display:none}
+#flow .demo{transform:none}
+@media (max-width:900px){.hvid{transform:none;order:-1;margin-bottom:6px}.hero .wrap{padding-top:22px}}
 </style>
 </head>
 <body>
@@ -405,6 +414,22 @@ table.cmp{width:100%;border-collapse:separate;border-spacing:0;background:#fff;b
       <div class="trust"><span>כבר עובדת היום בחצר חסידית</span><span>יידיש חסידית, עברית ואנגלית</span><span>הקמה וליווי אישי</span></div>
     </div>
 
+    <div class="hvid" id="video">
+      <video id="hv" autoplay muted loop playsinline preload="auto" poster="dk-poster.jpg"><source src="dk-video.mp4" type="video/mp4"></video>
+      <button class="snd" type="button" id="hvSnd">🔊 לצפייה עם קול</button>
+      <div class="hv-badge">▶ סרטון של דקה</div>
+    </div>
+  </div>
+</section>
+
+<div class="who"><div class="wrap">
+  <span>בשביל מי שהיום</span><b>מקשיב להקלטה ומקליד</b><b>מתרגם מיידיש לעברית</b><b>עורך ומעמד חוברת כל שבוע</b><b>מנהל ארכיון של שיחות</b>
+</div></div>
+
+<section class="block vid-band" id="flow">
+  <div class="wrap">
+    <div class="sec-h" style="margin-inline:auto;text-align:center"><h2>ככה זה עובד – מהקלטה לחוברת</h2><p>הקלטה, תמלול, נוסח בלשון הקודש וחוברת מוכנה לדפוס. הכל אוטומטי.</p></div>
+    <div style="max-width:620px;margin:26px auto 0">
     <div class="demo" aria-label="הדגמה: מהקלטה לחוברת">
       <div class="tabs" role="tablist">
         <div class="tab on">🎙️ הקלטה</div><div class="tab">📝 תמלול</div><div class="tab">📜 נוסח</div><div class="tab">🖨️ חוברת</div>
@@ -434,17 +459,7 @@ table.cmp{width:100%;border-collapse:separate;border-spacing:0;background:#fff;b
       </div>
       <div class="note">דוגמה להמחשה</div>
     </div>
-  </div>
-</section>
-
-<div class="who"><div class="wrap">
-  <span>בשביל מי שהיום</span><b>מקשיב להקלטה ומקליד</b><b>מתרגם מיידיש לעברית</b><b>עורך ומעמד חוברת כל שבוע</b><b>מנהל ארכיון של שיחות</b>
-</div></div>
-
-<section class="block vid-band" id="video">
-  <div class="wrap">
-    <div class="sec-h" style="margin-inline:auto;text-align:center"><h2>דקה אחת – ותבינו הכול</h2><p>מהקלטה של שיחה ועד חוברת מוכנה לדפוס.</p></div>
-    <div class="vid"><video controls preload="metadata" playsinline poster="dk-poster.jpg"><source src="dk-video.mp4" type="video/mp4"></video></div>
+    </div>
   </div>
 </section>
 
@@ -917,5 +932,6 @@ const b=f.querySelector('button');b.disabled=true;b.textContent='שולח…';co
 if(ok){f.innerHTML='<p style="font-weight:800;color:#1f7a4d;font-size:1.15rem">תודה! קיבלנו – נחזור אליכם בהקדם.</p>'}else{b.disabled=false;b.textContent='שלחו לי הדגמה';m.className='form-msg err';m.textContent='השליחה לא עברה – נסו שוב או השתמשו בטופס למטה.'}});
 })();
 </script>
+<script>(()=>{const v=document.getElementById('hv'),b=document.getElementById('hvSnd');if(!v)return;const go=()=>{v.muted=false;v.loop=false;v.currentTime=0;v.controls=true;v.play().catch(()=>{});v.parentElement.classList.add('live')};b.addEventListener('click',e=>{e.stopPropagation();go()});v.addEventListener('click',()=>{if(!v.controls)go()});v.addEventListener('ended',()=>{v.controls=false;v.muted=true;v.loop=true;v.parentElement.classList.remove('live');v.play().catch(()=>{})})})();</script>
 </body>
 </html>
