@@ -2,6 +2,7 @@
 <html lang="he" dir="rtl">
 <head>
 <meta charset="utf-8">
+<meta name="google-site-verification" content="xoU7u6rXfJEQz85_59ec0iOyd41thgoq8V_3G7pIuWs" />
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>דברי קודש – תמלול ועריכת שיחות קודש לחצרות חסידים</title>
 <meta name="description" content="מערכת שהופכת כל שיחה של האדמו״ר – ביידיש, בעברית או באנגלית – לתמלול מדויק, לנוסח בלשון הקודש ולחוברת מוכנה להדפסה. לומדת את הסגנון של החסידות שלכם בלבד. דברי קודש.">
@@ -383,6 +384,15 @@ table.cmp{width:100%;border-collapse:separate;border-spacing:0;background:#fff;b
 .hvid.live .snd,.hvid.live .hv-badge{display:none}
 #flow .demo{transform:none}
 @media (max-width:900px){.hvid{transform:none;order:-1;margin-bottom:6px}.hero .wrap{padding-top:22px}}
+
+#dmForm textarea,#dmForm input{width:100%;padding:.75em 1em;border:1px solid var(--line);border-radius:12px;font:inherit;font-size:1rem}
+#dmForm textarea{resize:vertical;min-height:96px;background:#f8faff}
+.dm-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+#dmForm .btn{width:100%;margin-top:12px;font-size:1.08rem}
+.gc-alt{margin-top:18px;padding-top:14px;border-top:1px dashed var(--line);font-size:.95rem}
+.gc-alt .gc-steps{margin:8px 0}
+.gc-box{max-height:92vh;overflow:auto}
+@media (max-width:520px){.dm-row{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -704,16 +714,24 @@ table.cmp{width:100%;border-collapse:separate;border-spacing:0;background:#fff;b
 <div class="gc-bg" id="gcModal" hidden>
   <div class="gc-box" role="dialog" aria-modal="true" aria-labelledby="gcTitle">
     <button type="button" class="gc-x" data-gcclose aria-label="סגירה">×</button>
-    <h3 id="gcTitle">צ'אט איתנו בגוגל</h3>
-    <p class="sub" id="gcSub">בצ'אט של ג'ימייל – כמו שאתם רגילים.</p>
-    <ol class="gc-steps">
-      <li>לחצו <b>"פתיחת הצ'אט"</b> – הצ'אט של ג'ימייל ייפתח.</li>
-      <li>לחצו <b>"צ'אט חדש"</b> והדביקו את הכתובת שלנו: <b dir="ltr">bnyytmrkwt@gmail.com</b></li>
-      <li id="gcStep3">הדביקו את ההודעה שהכנו לכם – ושלחו.</li>
-    </ol>
-    <div class="gc-msg" id="gcMsg"></div>
-    <div class="gc-actions"><a class="btn btn-gold" id="gcOpen" href="https://mail.google.com/chat/u/0/#chat/home" target="_blank" rel="noopener">פתיחת הצ'אט</a><button type="button" class="btn btn-line" id="gcCopy">העתקת הכתובת שלנו</button></div>
-    <p class="small" id="gcNote">הכתובת וההודעה הועתקו – רק להדביק (Ctrl+V).</p>
+    <h3 id="gcTitle">כתבו לנו – ונענה לכם</h3>
+    <p class="sub" id="gcSub">ההודעה מגיעה אלינו מיד, ואנחנו חוזרים אליכם בצ'אט, בטלפון או במייל.</p>
+    <form id="dmForm" novalidate>
+      <textarea id="dmText" rows="4" aria-label="ההודעה שלכם"></textarea>
+      <div class="dm-row"><input id="dmName" placeholder="שם" autocomplete="name"><input id="dmBack" placeholder="טלפון או מייל לחזרה" dir="ltr" autocomplete="email"></div>
+      <button class="btn btn-gold" type="submit" id="dmSend">שליחה ←</button>
+      <div class="form-msg" id="dmMsg" role="status" aria-live="polite"></div>
+    </form>
+    <div class="gc-alt">
+      <b id="gcAltT">מעדיפים את הצ'אט של ג'ימייל?</b>
+      <ol class="gc-steps">
+        <li>לחצו <b>"פתיחת הצ'אט בג'ימייל"</b> – הכתובת שלנו כבר מועתקת.</li>
+        <li>לחצו <b>"צ'אט חדש"</b>, הדביקו (Ctrl+V) ולחצו <b>"התחלת צ'אט"</b>.</li>
+        <li id="gcStep3">כתבו לנו – ושלחו.</li>
+      </ol>
+      <div class="gc-actions"><a class="btn btn-line" id="gcOpen" href="https://mail.google.com/mail/u/0/#chat/home" target="_blank" rel="noopener">💬 פתיחת הצ'אט בג'ימייל</a><button type="button" class="btn btn-line" id="gcCopy">העתקת הכתובת</button></div>
+      <p class="small" id="gcNote">הכתובת שלנו: <b dir="ltr">bnyytmrkwt@gmail.com</b></p>
+    </div>
   </div>
 </div>
 <!-- ---------- הצ'אט ---------- -->
@@ -815,20 +833,35 @@ const GC_TEXT = {
 async function copyText(t) { try { await navigator.clipboard.writeText(t); return true; } catch (e) { const ta = document.createElement('textarea'); ta.value = t; document.body.appendChild(ta); ta.select(); let ok = false; try { ok = document.execCommand('copy'); } catch (er) {} ta.remove(); return ok; } }
 function openGChat(kind) {
   const m = $('#gcModal'); const txt = GC_TEXT[kind] || GC_TEXT.question;
-  $('#gcTitle').textContent = kind === 'demo' ? 'שליחת הקלטה להדגמה' : "צ'אט איתנו בגוגל";
-  $('#gcSub').textContent = kind === 'demo' ? "שלחו לנו את ההקלטה בצ'אט של ג'ימייל – ונחזיר לכם אותה כחוברת." : "בצ'אט של ג'ימייל – כמו שאתם רגילים.";
-  $('#gcStep3').innerHTML = kind === 'demo' ? 'הדביקו את ההודעה, <b>צרפו את קובץ ההקלטה</b> (סימן ה-+ או גרירה לחלון) – ושלחו.' : 'הדביקו את ההודעה שהכנו לכם – ושלחו.';
-  $('#gcMsg').textContent = txt;
-  m.dataset.text = GC_EMAIL + '\n\n' + txt;
-  m.hidden = false; $('#gcOpen').focus();
-  copyText(txt).then((ok) => { $('#gcNote').textContent = ok ? 'ההודעה הועתקה – בצ\'אט רק להדביק (Ctrl+V).' : 'אפשר להעתיק את ההודעה מכאן.'; });
+  m.dataset.kind = kind;
+  $('#gcTitle').textContent = kind === 'demo' ? 'בקשת הדגמה על הקלטה שלכם' : 'כתבו לנו – ונענה לכם';
+  $('#gcSub').textContent = kind === 'demo' ? 'השאירו הודעה – ונחזור אליכם לקבל את ההקלטה. או שלחו אותה ישר בצ\'אט של ג\'ימייל (למטה).' : 'ההודעה מגיעה אלינו מיד, ואנחנו חוזרים אליכם בצ\'אט, בטלפון או במייל.';
+  $('#gcAltT').textContent = kind === 'demo' ? 'רוצים לשלוח את ההקלטה עצמה? בצ\'אט של ג\'ימייל:' : 'מעדיפים את הצ\'אט של ג\'ימייל?';
+  $('#gcStep3').innerHTML = kind === 'demo' ? 'כתבו כותרת ברורה (שם השיחה והחסידות), <b>צרפו את קובץ ההקלטה</b> – ושלחו.' : 'כתבו לנו – ושלחו.';
+  const ta = $('#dmText'); ta.value = kind === 'demo' ? 'שלום, אני מבקש הדגמה על הקלטה שלנו.\nחסידות / מוסד: ' : 'שלום, יש לי שאלה על דברי קודש:\n';
+  $('#dmMsg').textContent = ''; $('#dmMsg').className = 'form-msg';
+  if (!$('#dmForm').dataset.done) { m.hidden = false; setTimeout(() => { ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length); }, 50); } else m.hidden = false;
 }
 document.addEventListener('click', (e) => {
   const b = e.target.closest('[data-gchat]'); if (b) { e.preventDefault(); openGChat(b.dataset.gchat); }
   if (e.target.closest('[data-gcclose]') || e.target.id === 'gcModal') $('#gcModal').hidden = true;
 });
 $('#gcCopy').onclick = async () => { const ok = await copyText(GC_EMAIL); $('#gcNote').textContent = ok ? 'הכתובת הועתקה – הדביקו אותה ב"צ\'אט חדש". אחר כך העתיקו את ההודעה.' : 'הכתובת: ' + GC_EMAIL; };
-$('#gcOpen').addEventListener('click', () => { copyText(GC_EMAIL); $('#gcNote').textContent = 'הכתובת שלנו הועתקה – בצ\'אט לחצו "צ\'אט חדש" והדביקו. אחר כך הדביקו את ההודעה מכאן.'; });
+$('#gcOpen').addEventListener('click', () => { copyText(GC_EMAIL); $('#gcNote').innerHTML = '✓ הכתובת שלנו הועתקה – בצ\'אט לחצו "צ\'אט חדש" והדביקו (Ctrl+V).'; });
+$('#dmForm').addEventListener('submit', async (e) => {
+  e.preventDefault(); const msg = $('#dmMsg'), btn = $('#dmSend');
+  const text = $('#dmText').value.trim(), name = $('#dmName').value.trim(), back = $('#dmBack').value.trim();
+  const isMail = /@/.test(back), isPhone = back.replace(/\D/g, '').length >= 9;
+  msg.className = 'form-msg err';
+  if (text.length < 3) { msg.textContent = 'כתבו לנו משהו קצר.'; $('#dmText').focus(); return; }
+  if (!name) { msg.textContent = 'כתבו שם, כדי שנדע למי לענות.'; $('#dmName').focus(); return; }
+  if (!isMail && !isPhone) { msg.textContent = 'כתבו טלפון או מייל, כדי שנוכל לחזור אליכם.'; $('#dmBack').focus(); return; }
+  btn.disabled = true; btn.textContent = 'שולח…';
+  const kind = $('#gcModal').dataset.kind;
+  const ok = await sendLead({ name, phone: isPhone && !isMail ? back : '', email: isMail ? back : '', org: '', note: text, source: kind === 'demo' ? 'בקשת הדגמה (הודעה מהאתר)' : 'הודעה מהאתר' });
+  if (ok) { $('#dmForm').innerHTML = `<div class="done-card"><div class="big">✓</div><h3>ההודעה נשלחה!</h3><p class="sub">תודה, ${esc(name)}. נחזור אליכם בהקדם${isMail ? ' – בצ\'אט או במייל' : ' לטלפון'}.</p></div>`; $('#dmForm').dataset.done = '1'; }
+  else { btn.disabled = false; btn.textContent = 'שליחה ←'; msg.textContent = 'השליחה לא עברה. נסו שוב, או השתמשו בצ\'אט של ג\'ימייל למטה.'; }
+});
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') $('#gcModal').hidden = true; });
 
 /* ===== הצ'אט ===== */
