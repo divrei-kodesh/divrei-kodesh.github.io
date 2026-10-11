@@ -674,12 +674,13 @@ table.cmp{width:100%;border-collapse:separate;border-spacing:0;background:#fff;b
     <form class="lead" id="leadForm" novalidate>
       <div id="leadBody">
         <h3>שלחו לנו שיחה אחת</h3>
-        <p class="sub">שם וטלפון – וזהו. נחזור אליכם בהקדם.</p>
+        <p class="sub">שם, טלפון ומייל – וזהו. נחזור אליכם בהקדם.</p>
         <div class="fg">
           <div class="f"><label for="lName">שם מלא *</label><input id="lName" name="name" autocomplete="name" required></div>
           <div class="f"><label for="lPhone">טלפון *</label><input id="lPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" required></div>
+          <div class="f"><label for="lEmail">מייל *</label><input id="lEmail" name="email" type="email" autocomplete="email" dir="ltr" required></div>
           <div class="f"><label for="lOrg">חסידות / מוסד</label><input id="lOrg" name="org"></div>
-          <details class="f full more-f"><summary>עוד פרטים (לא חובה)</summary><div class="fg" style="margin-top:10px"><div class="f full"><label for="lEmail">מייל</label><input id="lEmail" name="email" type="email" autocomplete="email" dir="ltr"></div><div class="f full"><label for="lRole">התפקיד שלך</label>
+          <details class="f full more-f"><summary>עוד פרטים (לא חובה)</summary><div class="fg" style="margin-top:10px"><div class="f full"><label for="lRole">התפקיד שלך</label>
             <select id="lRole" name="role"><option value="">בחר…</option><option>מכון / הוצאה לאור</option><option>עורך עלון או גיליון</option><option>גבאי / משרד החצר</option><option>ישיבה או כולל</option><option>אחר</option></select></div><div class="f full"><span style="font-weight:700;font-size:.95rem;color:var(--ink)">מה הכי חשוב לכם?</span>
             <div class="chips">
               <label><input type="checkbox" name="need" value="תמלול יידיש">תמלול יידיש</label>
@@ -703,8 +704,8 @@ table.cmp{width:100%;border-collapse:separate;border-spacing:0;background:#fff;b
 <div class="xbg" id="xbg" hidden><div class="xbox" role="dialog" aria-modal="true" aria-labelledby="xT">
   <button class="x" type="button" data-xclose aria-label="סגירה">×</button>
   <h3 id="xT">רגע לפני שאתם הולכים…</h3>
-  <p>השאירו שם וטלפון – ונחזיר לכם שיחה אחת שלכם כחוברת מוכנה. בלי התחייבות.</p>
-  <form id="xForm" novalidate><input name="name" placeholder="שם" autocomplete="name"><input name="phone" placeholder="טלפון" type="tel" dir="ltr" autocomplete="tel"><input name="org" placeholder="חסידות / מוסד (לא חובה)">
+  <p>השאירו שם, טלפון ומייל – ונחזיר לכם שיחה אחת שלכם כחוברת מוכנה. בלי התחייבות.</p>
+  <form id="xForm" novalidate><input name="name" placeholder="שם" autocomplete="name"><input name="phone" placeholder="טלפון" type="tel" dir="ltr" autocomplete="tel"><input name="email" placeholder="מייל" type="email" dir="ltr" autocomplete="email"><input name="org" placeholder="חסידות / מוסד (לא חובה)">
   <button class="btn btn-gold" type="submit">שלחו לי הדגמה</button><div class="form-msg" id="xMsg" role="status"></div></form>
 </div></div>
 <div class="mbar"><a class="btn btn-gold" href="#lead">שלחו שיחה אחת</a><button class="btn btn-line" type="button" data-gchat="question">💬 צ'אט בגוגל</button><button class="btn btn-line" type="button" data-openchat>💬</button></div>
@@ -715,10 +716,10 @@ table.cmp{width:100%;border-collapse:separate;border-spacing:0;background:#fff;b
   <div class="gc-box" role="dialog" aria-modal="true" aria-labelledby="gcTitle">
     <button type="button" class="gc-x" data-gcclose aria-label="סגירה">×</button>
     <h3 id="gcTitle">כתבו לנו – ונענה לכם</h3>
-    <p class="sub" id="gcSub">ההודעה מגיעה אלינו מיד, ואנחנו חוזרים אליכם בצ'אט, בטלפון או במייל.</p>
+    <p class="sub" id="gcSub">ההודעה מגיעה אלינו מיד, ואנחנו עונים לכם בצ'אט או במייל.</p>
     <form id="dmForm" novalidate>
       <textarea id="dmText" rows="4" aria-label="ההודעה שלכם"></textarea>
-      <div class="dm-row"><input id="dmName" placeholder="שם" autocomplete="name"><input id="dmBack" placeholder="טלפון או מייל לחזרה" dir="ltr" autocomplete="email"></div>
+      <div class="dm-row"><input id="dmName" placeholder="שם *" autocomplete="name"><input id="dmMail" placeholder="מייל *" type="email" dir="ltr" autocomplete="email"></div><div class="dm-row"><input id="dmPhone" placeholder="טלפון (לא חובה)" type="tel" dir="ltr" autocomplete="tel" style="grid-column:1/-1"></div>
       <button class="btn btn-gold" type="submit" id="dmSend">שליחה ←</button>
       <div class="form-msg" id="dmMsg" role="status" aria-live="polite"></div>
     </form>
@@ -803,6 +804,7 @@ async function sendLead(lead) {
   } catch (e) {}
   return false;
 }
+const validMail = (m) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(String(m).trim());
 const validPhone = (p) => String(p).replace(/\D/g, '').length >= 9;
 
 $('#leadForm').addEventListener('submit', async (e) => {
@@ -812,6 +814,7 @@ $('#leadForm').addEventListener('submit', async (e) => {
   msg.className = 'form-msg';
   if (!lead.name) { msg.className = 'form-msg err'; msg.textContent = 'כתבו שם, כדי שנדע למי לחזור.'; f.name.focus(); return; }
   if (!validPhone(lead.phone)) { msg.className = 'form-msg err'; msg.textContent = 'כתבו מספר טלפון מלא, כדי שנוכל לחזור אליכם.'; f.phone.focus(); return; }
+  if (!validMail(lead.email)) { msg.className = 'form-msg err'; msg.textContent = 'כתבו כתובת מייל תקינה, כדי שנוכל לשלוח לכם את החוברת.'; f.email.focus(); return; }
   btn.disabled = true; btn.textContent = 'שולח…';
   const ok = await sendLead(lead);
   if (ok) {
@@ -850,16 +853,15 @@ $('#gcCopy').onclick = async () => { const ok = await copyText(GC_EMAIL); $('#gc
 $('#gcOpen').addEventListener('click', () => { copyText(GC_EMAIL); $('#gcNote').innerHTML = '✓ הכתובת שלנו הועתקה – בצ\'אט לחצו "צ\'אט חדש" והדביקו (Ctrl+V).'; });
 $('#dmForm').addEventListener('submit', async (e) => {
   e.preventDefault(); const msg = $('#dmMsg'), btn = $('#dmSend');
-  const text = $('#dmText').value.trim(), name = $('#dmName').value.trim(), back = $('#dmBack').value.trim();
-  const isMail = /@/.test(back), isPhone = back.replace(/\D/g, '').length >= 9;
+  const text = $('#dmText').value.trim(), name = $('#dmName').value.trim(), mail = $('#dmMail').value.trim(), phone = $('#dmPhone').value.trim();
   msg.className = 'form-msg err';
   if (text.length < 3) { msg.textContent = 'כתבו לנו משהו קצר.'; $('#dmText').focus(); return; }
   if (!name) { msg.textContent = 'כתבו שם, כדי שנדע למי לענות.'; $('#dmName').focus(); return; }
-  if (!isMail && !isPhone) { msg.textContent = 'כתבו טלפון או מייל, כדי שנוכל לחזור אליכם.'; $('#dmBack').focus(); return; }
+  if (!validMail(mail)) { msg.textContent = 'כתבו כתובת מייל תקינה, כדי שנוכל לענות לכם.'; $('#dmMail').focus(); return; }
   btn.disabled = true; btn.textContent = 'שולח…';
   const kind = $('#gcModal').dataset.kind;
-  const ok = await sendLead({ name, phone: isPhone && !isMail ? back : '', email: isMail ? back : '', org: '', note: text, source: kind === 'demo' ? 'בקשת הדגמה (הודעה מהאתר)' : 'הודעה מהאתר' });
-  if (ok) { $('#dmForm').innerHTML = `<div class="done-card"><div class="big">✓</div><h3>ההודעה נשלחה!</h3><p class="sub">תודה, ${esc(name)}. נחזור אליכם בהקדם${isMail ? ' – בצ\'אט או במייל' : ' לטלפון'}.</p></div>`; $('#dmForm').dataset.done = '1'; }
+  const ok = await sendLead({ name, phone, email: mail, org: '', note: text, source: kind === 'demo' ? 'בקשת הדגמה (הודעה מהאתר)' : 'הודעה מהאתר' });
+  if (ok) { $('#dmForm').innerHTML = `<div class="done-card"><div class="big">✓</div><h3>ההודעה נשלחה!</h3><p class="sub">תודה, ${esc(name)}. נחזור אליכם בהקדם – בצ\'אט או במייל.</p></div>`; $('#dmForm').dataset.done = '1'; }
   else { btn.disabled = false; btn.textContent = 'שליחה ←'; msg.textContent = 'השליחה לא עברה. נסו שוב, או השתמשו בצ\'אט של ג\'ימייל למטה.'; }
 });
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') $('#gcModal').hidden = true; });
@@ -959,8 +961,8 @@ let seen=false;try{seen=sessionStorage.getItem('dkx')==='1'}catch(e){}
 const xb=$i('xbg');const openX=()=>{if(seen)return;seen=true;try{sessionStorage.setItem('dkx','1')}catch(e){}xb.hidden=false};
 if(matchMedia('(pointer:fine)').matches){setTimeout(()=>document.addEventListener('mouseout',e=>{if(!e.relatedTarget&&e.clientY<8&&!atLead)openX()}),12000)}
 xb.addEventListener('click',e=>{if(e.target===xb||e.target.closest('[data-xclose]'))xb.hidden=true});
-$i('xForm').addEventListener('submit',async e=>{e.preventDefault();const f=e.target,m=$i('xMsg');const lead={name:f.name.value.trim(),phone:f.phone.value.trim(),email:'',org:f.org.value.trim(),role:'',needs:[],note:'',source:'חלון לפני יציאה'};
-if(!lead.name){m.className='form-msg err';m.textContent='כתבו שם.';return}if(String(lead.phone).replace(/\D/g,'').length<9){m.className='form-msg err';m.textContent='כתבו טלפון מלא.';return}
+$i('xForm').addEventListener('submit',async e=>{e.preventDefault();const f=e.target,m=$i('xMsg');const lead={name:f.name.value.trim(),phone:f.phone.value.trim(),email:f.email.value.trim(),org:f.org.value.trim(),role:'',needs:[],note:'',source:'חלון לפני יציאה'};
+if(!lead.name){m.className='form-msg err';m.textContent='כתבו שם.';return}if(String(lead.phone).replace(/\D/g,'').length<9){m.className='form-msg err';m.textContent='כתבו טלפון מלא.';return}if(!validMail(lead.email)){m.className='form-msg err';m.textContent='כתבו מייל תקין.';return}
 const b=f.querySelector('button');b.disabled=true;b.textContent='שולח…';const ok=await sendLead(lead);
 if(ok){f.innerHTML='<p style="font-weight:800;color:#1f7a4d;font-size:1.15rem">תודה! קיבלנו – נחזור אליכם בהקדם.</p>'}else{b.disabled=false;b.textContent='שלחו לי הדגמה';m.className='form-msg err';m.textContent='השליחה לא עברה – נסו שוב או השתמשו בטופס למטה.'}});
 })();
