@@ -580,7 +580,7 @@ table.cmp{width:100%;border-collapse:separate;border-spacing:0;background:#fff;b
       <div class="m k"><b>דקות</b>עם דברי קודש – תמלול, נוסח וחוברת<br><small>לעורך נשאר רק לעבור ולאשר</small></div>
     </div>
     <div class="now-cta"><p>כל שבוע שעובר – עוד שיחה שמחכה בארון. שלחו לנו הקלטה אחת, ותראו בעיניים.</p>
-      <a class="btn btn-gold" href="#lead">שלחו לנו שיחה אחת – ונחזיר אותה כחוברת</a> <button class="btn btn-line" type="button" data-gchat="demo">💬 או בצ'אט של גוגל</button></div>
+      <a class="btn btn-gold" href="#lead">שלחו לנו שיחה אחת – ונחזיר אותה כחוברת</a> <button class="btn btn-line" type="button" data-gchat="demo">✉️ או שלחו לנו מייל</button></div>
   </div>
 </section>
 
@@ -669,7 +669,7 @@ table.cmp{width:100%;border-collapse:separate;border-spacing:0;background:#fff;b
         <li>הצעה מותאמת לגודל ולצרכים של החסידות</li>
         <li>הקמה מלאה על ידינו – בלי שום ידע טכני</li>
       </ul>
-      <button class="alt-chat" type="button" data-gchat="demo">💬 מעדיפים לשלוח את ההקלטה בצ'אט של גוגל? לחצו כאן</button>
+      <button class="alt-chat" type="button" data-gchat="demo">✉️ מעדיפים לשלוח לנו מייל? לחצו כאן</button>
     </div>
     <form class="lead" id="leadForm" novalidate>
       <div id="leadBody">
@@ -708,15 +708,15 @@ table.cmp{width:100%;border-collapse:separate;border-spacing:0;background:#fff;b
   <form id="xForm" novalidate><input name="name" placeholder="שם" autocomplete="name"><input name="phone" placeholder="טלפון" type="tel" dir="ltr" autocomplete="tel"><input name="email" placeholder="מייל" type="email" dir="ltr" autocomplete="email"><input name="org" placeholder="חסידות / מוסד (לא חובה)">
   <button class="btn btn-gold" type="submit">שלחו לי הדגמה</button><div class="form-msg" id="xMsg" role="status"></div></form>
 </div></div>
-<div class="mbar"><a class="btn btn-gold" href="#lead">שלחו שיחה אחת</a><button class="btn btn-line" type="button" data-gchat="question">💬 צ'אט בגוגל</button><button class="btn btn-line" type="button" data-openchat>💬</button></div>
+<div class="mbar"><a class="btn btn-gold" href="#lead">שלחו שיחה אחת</a><button class="btn btn-line" type="button" data-gchat="question">✉️ מייל</button><button class="btn btn-line" type="button" data-openchat>💬</button></div>
 
-<button class="mail-fab" id="gchatFab" type="button" data-gchat="question" aria-label="צ'אט איתנו בגוגל"><span class="mi">💬</span>צ'אט בגוגל</button>
+<button class="mail-fab" id="gchatFab" type="button" data-gchat="question" aria-label="שליחת מייל"><span class="mi">✉️</span>שליחת מייל</button>
 
 <div class="gc-bg" id="gcModal" hidden>
   <div class="gc-box" role="dialog" aria-modal="true" aria-labelledby="gcTitle">
     <button type="button" class="gc-x" data-gcclose aria-label="סגירה">×</button>
-    <h3 id="gcTitle">כתבו לנו – ונענה לכם</h3>
-    <p class="sub" id="gcSub">ההודעה מגיעה אלינו מיד, ואנחנו עונים לכם בצ'אט או במייל.</p>
+    <h3 id="gcTitle">שלחו לנו מייל</h3>
+    <p class="sub" id="gcSub">ההודעה נשלחת מיד למייל של החברה – ואנחנו עונים לכם במייל.</p>
     <form id="dmForm" novalidate>
       <textarea id="dmText" rows="4" aria-label="ההודעה שלכם"></textarea>
       <div class="dm-row"><input id="dmName" placeholder="שם *" autocomplete="name"><input id="dmMail" placeholder="מייל *" type="email" dir="ltr" autocomplete="email"></div><div class="dm-row"><input id="dmPhone" placeholder="טלפון (לא חובה)" type="tel" dir="ltr" autocomplete="tel" style="grid-column:1/-1"></div>
@@ -724,13 +724,9 @@ table.cmp{width:100%;border-collapse:separate;border-spacing:0;background:#fff;b
       <div class="form-msg" id="dmMsg" role="status" aria-live="polite"></div>
     </form>
     <div class="gc-alt">
-      <b id="gcAltT">מעדיפים את הצ'אט של ג'ימייל?</b>
-      <ol class="gc-steps">
-        <li>לחצו <b>"פתיחת הצ'אט בג'ימייל"</b> – הכתובת שלנו כבר מועתקת.</li>
-        <li>לחצו <b>"צ'אט חדש"</b>, הדביקו (Ctrl+V) ולחצו <b>"התחלת צ'אט"</b>.</li>
-        <li id="gcStep3">כתבו לנו – ושלחו.</li>
-      </ol>
-      <div class="gc-actions"><a class="btn btn-line" id="gcOpen" href="https://mail.google.com/mail/u/0/#chat/home" target="_blank" rel="noopener">💬 פתיחת הצ'אט בג'ימייל</a><button type="button" class="btn btn-line" id="gcCopy">העתקת הכתובת</button></div>
+      <b id="gcAltT">מעדיפים לכתוב מתוכנת המייל שלכם?</b>
+      <p id="gcStep3" style="margin:.4em 0">כתבו לנו ישירות לכתובת של החברה:</p>
+      <div class="gc-actions"><a class="btn btn-line" id="gcOpen" href="mailto:bnyytmrkwt@gmail.com">✉️ פתיחת מייל חדש</a><button type="button" class="btn btn-line" id="gcCopy">העתקת הכתובת</button></div>
       <p class="small" id="gcNote">הכתובת שלנו: <b dir="ltr">bnyytmrkwt@gmail.com</b></p>
     </div>
   </div>
@@ -837,10 +833,10 @@ async function copyText(t) { try { await navigator.clipboard.writeText(t); retur
 function openGChat(kind) {
   const m = $('#gcModal'); const txt = GC_TEXT[kind] || GC_TEXT.question;
   m.dataset.kind = kind;
-  $('#gcTitle').textContent = kind === 'demo' ? 'בקשת הדגמה על הקלטה שלכם' : 'כתבו לנו – ונענה לכם';
-  $('#gcSub').textContent = kind === 'demo' ? 'השאירו הודעה – ונחזור אליכם לקבל את ההקלטה. או שלחו אותה ישר בצ\'אט של ג\'ימייל (למטה).' : 'ההודעה מגיעה אלינו מיד, ואנחנו חוזרים אליכם בצ\'אט, בטלפון או במייל.';
-  $('#gcAltT').textContent = kind === 'demo' ? 'רוצים לשלוח את ההקלטה עצמה? בצ\'אט של ג\'ימייל:' : 'מעדיפים את הצ\'אט של ג\'ימייל?';
-  $('#gcStep3').innerHTML = kind === 'demo' ? 'כתבו כותרת ברורה (שם השיחה והחסידות), <b>צרפו את קובץ ההקלטה</b> – ושלחו.' : 'כתבו לנו – ושלחו.';
+  $('#gcTitle').textContent = kind === 'demo' ? 'בקשת הדגמה על הקלטה שלכם' : 'שלחו לנו מייל';
+  $('#gcSub').textContent = kind === 'demo' ? 'השאירו הודעה – ונחזור אליכם לקבל את ההקלטה. אפשר גם לשלוח את ההקלטה עצמה במייל (למטה).' : 'ההודעה נשלחת מיד למייל של החברה – ואנחנו עונים לכם במייל.';
+  $('#gcAltT').textContent = kind === 'demo' ? 'רוצים לשלוח את ההקלטה עצמה? צרפו אותה למייל:' : 'מעדיפים לכתוב מתוכנת המייל שלכם?';
+  $('#gcStep3').innerHTML = kind === 'demo' ? 'כתבו בנושא את שם השיחה והחסידות, <b>צרפו את קובץ ההקלטה</b> – ושלחו ל-bnyytmrkwt@gmail.com' : 'כתבו לנו ישירות לכתובת של החברה:'; $('#gcOpen').href = 'mailto:bnyytmrkwt@gmail.com?subject=' + encodeURIComponent(kind === 'demo' ? 'בקשת הדגמה – הקלטה מצורפת' : 'פנייה מהאתר – דברי קודש');
   const ta = $('#dmText'); ta.value = kind === 'demo' ? 'שלום, אני מבקש הדגמה על הקלטה שלנו.\nחסידות / מוסד: ' : 'שלום, יש לי שאלה על דברי קודש:\n';
   $('#dmMsg').textContent = ''; $('#dmMsg').className = 'form-msg';
   if (!$('#dmForm').dataset.done) { m.hidden = false; setTimeout(() => { ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length); }, 50); } else m.hidden = false;
@@ -850,7 +846,7 @@ document.addEventListener('click', (e) => {
   if (e.target.closest('[data-gcclose]') || e.target.id === 'gcModal') $('#gcModal').hidden = true;
 });
 $('#gcCopy').onclick = async () => { const ok = await copyText(GC_EMAIL); $('#gcNote').textContent = ok ? 'הכתובת הועתקה – הדביקו אותה ב"צ\'אט חדש". אחר כך העתיקו את ההודעה.' : 'הכתובת: ' + GC_EMAIL; };
-$('#gcOpen').addEventListener('click', () => { copyText(GC_EMAIL); $('#gcNote').innerHTML = '✓ הכתובת שלנו הועתקה – בצ\'אט לחצו "צ\'אט חדש" והדביקו (Ctrl+V).'; });
+$('#gcOpen').addEventListener('click', () => { copyText(GC_EMAIL); $('#gcNote').innerHTML = '✓ נפתח מייל חדש. אם לא נפתח – הכתובת הועתקה: <b dir="ltr">bnyytmrkwt@gmail.com</b>'; });
 $('#dmForm').addEventListener('submit', async (e) => {
   e.preventDefault(); const msg = $('#dmMsg'), btn = $('#dmSend');
   const text = $('#dmText').value.trim(), name = $('#dmName').value.trim(), mail = $('#dmMail').value.trim(), phone = $('#dmPhone').value.trim();
@@ -861,8 +857,8 @@ $('#dmForm').addEventListener('submit', async (e) => {
   btn.disabled = true; btn.textContent = 'שולח…';
   const kind = $('#gcModal').dataset.kind;
   const ok = await sendLead({ name, phone, email: mail, org: '', note: text, source: kind === 'demo' ? 'בקשת הדגמה (הודעה מהאתר)' : 'הודעה מהאתר' });
-  if (ok) { $('#dmForm').innerHTML = `<div class="done-card"><div class="big">✓</div><h3>ההודעה נשלחה!</h3><p class="sub">תודה, ${esc(name)}. נחזור אליכם בהקדם – בצ\'אט או במייל.</p></div>`; $('#dmForm').dataset.done = '1'; }
-  else { btn.disabled = false; btn.textContent = 'שליחה ←'; msg.textContent = 'השליחה לא עברה. נסו שוב, או השתמשו בצ\'אט של ג\'ימייל למטה.'; }
+  if (ok) { $('#dmForm').innerHTML = `<div class="done-card"><div class="big">✓</div><h3>ההודעה נשלחה!</h3><p class="sub">תודה, ${esc(name)}. נחזור אליכם בהקדם במייל.</p></div>`; $('#dmForm').dataset.done = '1'; }
+  else { btn.disabled = false; btn.textContent = 'שליחה ←'; msg.textContent = 'השליחה לא עברה. נסו שוב, או השתמשו בכפתור "פתיחת מייל חדש" למטה.'; }
 });
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') $('#gcModal').hidden = true; });
 
@@ -882,7 +878,7 @@ const KB = [
   { k: ['איך מתחילים', 'להתחיל', 'הקמה', 'להצטרף', 'הרשמה', 'התקנה', 'להתקין'], a: 'פשוט מאוד:\n1. משאירים פרטים – אנחנו חוזרים ומדגימים על הקלטה שלכם.\n2. אנחנו מקימים לכם את החסידות: שם, לוגו, שמות האדמו״רים, שער החוברת וחשבונות לצוות.\n3. מעלים כמה שיחות כתובות – והמערכת לומדת את הסגנון ומתחילה לעבוד.\n\nלא צריך להתקין כלום – עובד מהדפדפן במחשב ובטלפון.', q: ['להשאיר פרטים'] },
   { k: ['טלפון', 'נייד', 'אפליקציה', 'מחשב', 'סמארטפון', 'פלאפון'], a: 'המערכת עובדת מהדפדפן – במחשב ובטלפון – ואפשר להוסיף אותה למסך הבית כמו אפליקציה. אפשר להקליט או להעלות קובץ ישר מהטלפון.', q: ['איך מתחילים?', 'להשאיר פרטים'] },
   { k: ['צוות', 'עורכים', 'הרשאות', 'משתמשים', 'מנהל', 'עובדים'], a: 'לכל חסידות יש מנהל משלה, שמוסיף משתמשים ועורכים וקובע לכל אחד מה מותר לו. המנהל רואה גם מה כל אחד עושה ובאיזה שלב כל הקלטה.', q: ['פרטיות', 'להשאיר פרטים'] },
-  { k: ['הדגמה', 'דמו', 'לנסות', 'ניסיון', 'לראות'], a: 'בשמחה! שלחו לנו שיחה אחת – ונחזיר לכם אותה כתמלול, נוסח וחוברת. בחינם ובלי התחייבות.\nהכי פשוט: לחצו על "שליחת הקלטה בצ\'אט של גוגל", צרפו את ההקלטה – ואנחנו חוזרים אליכם עם החוברת.', html: false, gchat: 'demo', q: ['להשאיר פרטים'] }
+  { k: ['הדגמה', 'דמו', 'לנסות', 'ניסיון', 'לראות'], a: 'בשמחה! שלחו לנו שיחה אחת – ונחזיר לכם אותה כתמלול, נוסח וחוברת. בחינם ובלי התחייבות.\nהכי פשוט: לחצו על "שליחת מייל", צרפו את ההקלטה – ואנחנו חוזרים אליכם עם החוברת.', html: false, gchat: 'demo', q: ['להשאיר פרטים'] }
 ];
 const QUICK0 = ['מה המערכת עושה?', 'במה אתם שונים מתוכנה רגילה?', 'הסגנון שלנו', 'הדגמה על הקלטה שלנו', 'כמה זה עולה?'];
 function bot(text, chips, html) {
@@ -917,7 +913,7 @@ async function handle(text) {
   if (/איך מתחילים/.test(text)) best = KB.find((x) => x.k.includes('איך מתחילים'));
   if (/כמה זמן/.test(text)) best = KB.find((x) => x.k.includes('כמה זמן'));
   if (/פרטיות/.test(text)) best = KB.find((x) => x.k.includes('פרטיות'));
-  if (best) { bot(best.a, best.q); if (best.gchat) setTimeout(() => { const m = document.createElement('div'); m.className = 'msg bot'; m.innerHTML = '<button type="button" class="cta" data-gchat="demo" style="border:0;cursor:pointer;font:inherit;font-weight:800">💬 שליחת הקלטה בצ\'אט של גוגל</button>'; log.appendChild(m); log.scrollTop = log.scrollHeight; }, 1500); return; }
+  if (best) { bot(best.a, best.q); if (best.gchat) setTimeout(() => { const m = document.createElement('div'); m.className = 'msg bot'; m.innerHTML = '<button type="button" class="cta" data-gchat="demo" style="border:0;cursor:pointer;font:inherit;font-weight:800">✉️ שליחת מייל</button>'; log.appendChild(m); log.scrollTop = log.scrollHeight; }, 1500); return; }
   bot('שאלה טובה. כדי לענות לכם בדיוק על זה, הכי טוב שאחד מאנשי הצוות יחזור אליכם אישית.\nרוצים להשאיר שם וטלפון?', ['להשאיר פרטים', 'מה המערכת עושה?']);
 }
 function startLead() { leadFlow = { step: 'name' }; bot('מעולה! איך קוראים לכם?'); }
