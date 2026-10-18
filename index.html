@@ -10,7 +10,7 @@
 <meta property="og:description" content="דברי קודש – המסייע החכם לעורך: תמלול יידיש ועברית, תרגום ועימוד ראשוני בסגנון החצר. הליטוש וההגהה בידי העורך. עוזר אישי עם מקורות וחיפוש בשיחות.">
 <link rel="canonical" href="https://divrei-kodesh.github.io/">
 <meta name="keywords" content="תמלול יידיש, תמלול שיחות קודש, תמלול שיעורים, תמלול דרשות, הקלדת הקלטות, עלון שבועי, הוצאה לאור, ספרי חסידות, חוברת להדפסה, תמלול הקלטות, חסידות, אדמו״ר">
-<meta property="og:url" content="https://divrei-kodesh.github.io/"><meta property="og:image" content="https://divrei-kodesh.github.io/dk-poster.jpg"><meta property="og:locale" content="he_IL"><meta property="og:type" content="website">
+<meta property="og:url" content="https://divrei-kodesh.github.io/"><meta property="og:image" content="https://divrei-kodesh.github.io/dk-promo-poster.jpg"><meta property="og:locale" content="he_IL"><meta property="og:type" content="website">
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#13214a">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 rx=%2214%22 fill=%22%2313214a%22/%3E%3Cpath d=%22M32 6 C37 11 37 14 32 18 C27 14 27 11 32 6Z%22 fill=%22%23e7c77d%22/%3E%3Cpath d=%22M32 24 C25 19 16 19 9 22 V50 C16 47 25 47 32 52 C39 47 48 47 55 50 V22 C48 19 39 19 32 24Z%22 fill=%22%23d4a63f%22/%3E%3C/svg%3E">
@@ -609,6 +609,15 @@ html.tm-open{overflow:hidden}
 @media (max-width:1320px){.tour-link{margin-inline-start:auto}}
 @media (max-width:560px){.tour-link span{display:none}.tour-link{padding:.4em .55em}}
 @media (max-width:380px){.top .btn-gold{display:none}}
+
+/* ===== ככה זה נראה מבפנים ===== */
+.inside-band{background:linear-gradient(180deg,#f8f3e6,#fff)}
+.inside-video{position:relative;max-width:960px;margin:6px auto 0;border-radius:20px;overflow:hidden;background:#0d1734;box-shadow:0 34px 70px -32px rgba(19,33,74,.7),0 0 0 2px rgba(212,166,63,.5)}
+.inside-video video{display:block;width:100%;aspect-ratio:16/9;background:#0d1734}
+.iv-play{position:absolute;inset:0;margin:auto;width:fit-content;height:fit-content;display:flex;align-items:center;gap:10px;border:0;border-radius:999px;padding:.95em 1.8em;font:800 1.2rem 'Assistant',Arial,sans-serif;background:linear-gradient(180deg,#e7c77d,#b8892b);color:#1a1405;cursor:pointer;box-shadow:0 0 0 10px rgba(212,166,63,.22),0 18px 36px -12px rgba(0,0,0,.6)}
+.iv-play .si{width:1.3em;height:1.3em}
+.iv-play[hidden]{display:none}
+@media (max-width:560px){.iv-play{font-size:1rem;padding:.75em 1.3em}.inside-video{border-radius:14px}}
 .arch-calc{margin-top:34px}
 .tm{color:#6b7385!important}
 .arch-calc h3{font-size:1.4rem}
@@ -647,7 +656,7 @@ html.tm-open{overflow:hidden}
 </head>
 <body>
 <a class="skip" href="#main">דילוג לתוכן</a>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M8.5 21h7"/></symbol><symbol id="i-lines" viewBox="0 0 24 24"><path d="M5 4h10l4 4v12H5z"/><path d="M15 4v4h4M8 12h8M8 15.5h8M8 9h4"/></symbol><symbol id="i-scroll" viewBox="0 0 24 24"><path d="M7 4h11a2 2 0 0 1 2 2v1h-4M7 4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2V7"/><path d="M8.5 9h6M8.5 12.5h6M8.5 16h4"/></symbol><symbol id="i-print" viewBox="0 0 24 24"><path d="M7 8V3h10v5M7 17H4.5A1.5 1.5 0 0 1 3 15.5v-6A1.5 1.5 0 0 1 4.5 8h15A1.5 1.5 0 0 1 21 9.5v6a1.5 1.5 0 0 1-1.5 1.5H17"/><path d="M7 14h10v7H7z"/></symbol><symbol id="i-sound" viewBox="0 0 24 24"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></symbol><symbol id="i-mute" viewBox="0 0 24 24"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></symbol><symbol id="i-repeat" viewBox="0 0 24 24"><path d="M4 11V9a3 3 0 0 1 3-3h12l-3-3M20 13v2a3 3 0 0 1-3 3H5l3 3"/></symbol><symbol id="i-pen" viewBox="0 0 24 24"><path d="M14.5 5.5l4 4L9 19l-5 1 1-5z"/><path d="M12.5 7.5l4 4"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16.5 9.5"/></symbol><symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 3.8 5.6 3.8 9s-1.2 6.4-3.8 9c-2.6-2.6-3.8-5.6-3.8-9S9.4 5.6 12 3z"/></symbol><symbol id="i-book" viewBox="0 0 24 24"><path d="M12 6.5C9.8 4.9 6.8 4.5 3.5 5v13c3.3-.5 6.3-.1 8.5 1.5 2.2-1.6 5.2-2 8.5-1.5V5c-3.3-.5-6.3-.1-8.5 1.5zM12 6.5v13"/></symbol><symbol id="i-speech" viewBox="0 0 24 24"><path d="M5 5h14a1.5 1.5 0 0 1 1.5 1.5v8A1.5 1.5 0 0 1 19 16h-8l-4.5 3.5V16H5a1.5 1.5 0 0 1-1.5-1.5v-8A1.5 1.5 0 0 1 5 5z"/><path d="M8 9.5h8M8 12.5h5"/></symbol><symbol id="i-save" viewBox="0 0 24 24"><path d="M6.5 18.5a4 4 0 0 1-.6-7.96A6 6 0 0 1 17.6 9a4.5 4.5 0 0 1 .4 9.5z"/><path d="M12 11v5.5M9.5 14l2.5 2.5 2.5-2.5"/></symbol><symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.5 7l8.5 6.5L20.5 7"/></symbol><symbol id="i-a11y" viewBox="0 0 24 24"><circle cx="12" cy="4.5" r="1.8"/><path d="M5 8.5l7 1.5 7-1.5M12 10v4.5M12 14.5L9 21M12 14.5l3 6.5"/></symbol><symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></symbol><symbol id="i-pause" viewBox="0 0 24 24"><path d="M8 5.5v13M16 5.5v13" stroke-width="3"/></symbol><symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 15.5V4M7.5 8.5L12 4l4.5 4.5M4.5 15v3.5A1.5 1.5 0 0 0 6 20h12a1.5 1.5 0 0 0 1.5-1.5V15"/></symbol><symbol id="i-robot" viewBox="0 0 24 24"><rect x="5" y="8" width="14" height="11" rx="3"/><path d="M12 8V5M9.5 13h0M14.5 13h0M9.5 16.5h5"/><circle cx="12" cy="4" r="1.2"/></symbol></defs></svg>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M8.5 21h7"/></symbol><symbol id="i-lines" viewBox="0 0 24 24"><path d="M5 4h10l4 4v12H5z"/><path d="M15 4v4h4M8 12h8M8 15.5h8M8 9h4"/></symbol><symbol id="i-scroll" viewBox="0 0 24 24"><path d="M7 4h11a2 2 0 0 1 2 2v1h-4M7 4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2V7"/><path d="M8.5 9h6M8.5 12.5h6M8.5 16h4"/></symbol><symbol id="i-print" viewBox="0 0 24 24"><path d="M7 8V3h10v5M7 17H4.5A1.5 1.5 0 0 1 3 15.5v-6A1.5 1.5 0 0 1 4.5 8h15A1.5 1.5 0 0 1 21 9.5v6a1.5 1.5 0 0 1-1.5 1.5H17"/><path d="M7 14h10v7H7z"/></symbol><symbol id="i-sound" viewBox="0 0 24 24"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></symbol><symbol id="i-mute" viewBox="0 0 24 24"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></symbol><symbol id="i-repeat" viewBox="0 0 24 24"><path d="M4 11V9a3 3 0 0 1 3-3h12l-3-3M20 13v2a3 3 0 0 1-3 3H5l3 3"/></symbol><symbol id="i-pen" viewBox="0 0 24 24"><path d="M14.5 5.5l4 4L9 19l-5 1 1-5z"/><path d="M12.5 7.5l4 4"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16.5 9.5"/></symbol><symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 3.8 5.6 3.8 9s-1.2 6.4-3.8 9c-2.6-2.6-3.8-5.6-3.8-9S9.4 5.6 12 3z"/></symbol><symbol id="i-book" viewBox="0 0 24 24"><path d="M12 6.5C9.8 4.9 6.8 4.5 3.5 5v13c3.3-.5 6.3-.1 8.5 1.5 2.2-1.6 5.2-2 8.5-1.5V5c-3.3-.5-6.3-.1-8.5 1.5zM12 6.5v13"/></symbol><symbol id="i-speech" viewBox="0 0 24 24"><path d="M5 5h14a1.5 1.5 0 0 1 1.5 1.5v8A1.5 1.5 0 0 1 19 16h-8l-4.5 3.5V16H5a1.5 1.5 0 0 1-1.5-1.5v-8A1.5 1.5 0 0 1 5 5z"/><path d="M8 9.5h8M8 12.5h5"/></symbol><symbol id="i-save" viewBox="0 0 24 24"><path d="M6.5 18.5a4 4 0 0 1-.6-7.96A6 6 0 0 1 17.6 9a4.5 4.5 0 0 1 .4 9.5z"/><path d="M12 11v5.5M9.5 14l2.5 2.5 2.5-2.5"/></symbol><symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.5 7l8.5 6.5L20.5 7"/></symbol><symbol id="i-a11y" viewBox="0 0 24 24"><circle cx="12" cy="4.5" r="1.8"/><path d="M5 8.5l7 1.5 7-1.5M12 10v4.5M12 14.5L9 21M12 14.5l3 6.5"/></symbol><symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></symbol><symbol id="i-pause" viewBox="0 0 24 24"><path d="M8 5.5v13M16 5.5v13" stroke-width="3"/></symbol><symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 15.5V4M7.5 8.5L12 4l4.5 4.5M4.5 15v3.5A1.5 1.5 0 0 0 6 20h12a1.5 1.5 0 0 0 1.5-1.5V15"/></symbol><symbol id="i-restart" viewBox="0 0 24 24"><path d="M4 5v5h5"/><path d="M5.2 14.5A7.5 7.5 0 1 0 6.3 7L4 10"/></symbol><symbol id="i-robot" viewBox="0 0 24 24"><rect x="5" y="8" width="14" height="11" rx="3"/><path d="M12 8V5M9.5 13h0M14.5 13h0M9.5 16.5h5"/><circle cx="12" cy="4" r="1.2"/></symbol></defs></svg>
 
 <header class="top">
   <div class="wrap">
@@ -692,9 +701,9 @@ html.tm-open{overflow:hidden}
 
     <div class="hv-wrap">
     <div class="hvid" id="video">
-      <video id="hv" autoplay muted loop playsinline preload="auto" poster="dk-poster.jpg"><source src="dk-video.mp4" type="video/mp4"></video>
+      <video id="hv" autoplay muted loop playsinline preload="auto" poster="dk-promo-poster.jpg"><source src="dk-promo.mp4" type="video/mp4"></video>
       <button class="snd" type="button" id="hvSnd"><svg class="si" aria-hidden="true" focusable="false"><use href="#i-sound"/></svg> לצפייה עם קול</button>
-      <div class="hv-badge">▶ סרטון של דקה</div>
+      <div class="hv-badge">▶ סרטון של פחות מדקה</div>
     </div>
     <div class="booklet" aria-hidden="true">
       <div class="bk-spine"></div>
@@ -731,6 +740,17 @@ html.tm-open{overflow:hidden}
       <div class="now"><small>עם דברי קודש</small><b>שעות בודדות</b><span>עד טיוטה מוכנה לעריכה</span></div>
     </div>
     <div class="sp-ctas"><a class="btn btn-gold" href="#lead">תיאום הדגמה חיה על הקלטה שלכם</a><a class="btn btn-line" href="#lead">לבדיקת התאמה לחסידות שלכם</a></div>
+  </div>
+</section>
+
+<section class="block inside-band" id="inside">
+  <div class="wrap">
+    <div class="sec-h" style="margin-inline:auto;text-align:center"><span class="kicker">מתוך המערכת האמיתית</span><h2>ככה זה נראה מבפנים</h2><p>דקה וחצי בתוך המערכת עצמה: בוחרים שפה, מעלים הקלטה, ומקבלים תמלול, נוסח, חוברת מוכנה להדפסה וחיפוש בכל השיחות.</p></div>
+    <div class="inside-video">
+      <video id="demoVid" controls playsinline preload="none" poster="dk-demo-poster.jpg"><source src="dk-demo.mp4" type="video/mp4"></video>
+      <button type="button" class="iv-play" id="demoPlay" aria-label="הפעלת הסרטון"><svg class="si" aria-hidden="true"><use href="#i-play"/></svg><span>צפו בסרטון</span></button>
+    </div>
+    <div class="sp-ctas"><a class="btn btn-gold" href="#lead">תיאום הדגמה חיה על הקלטה שלכם</a></div>
   </div>
 </section>
 
@@ -795,6 +815,7 @@ html.tm-open{overflow:hidden}
       </div>
       <div class="t-cap" id="tCap" aria-live="polite">לחצו על ״הפעלת ההדרכה״ כדי להתחיל.</div>
       <div class="t-ctrl">
+        <button type="button" id="tRestart" aria-label="מההתחלה" title="מההתחלה"><svg class="si" aria-hidden="true" focusable="false"><use href="#i-restart"/></svg></button>
         <button type="button" id="tToggle" aria-label="השהיה"><svg class="si" aria-hidden="true" focusable="false"><use href="#i-pause"/></svg></button>
         <div class="t-prog" aria-hidden="true"><i id="tProg"></i></div>
         <span id="tStep" class="t-step">0/10</span>
@@ -1421,7 +1442,16 @@ new IntersectionObserver(e=>{pastHero=!e[0].isIntersecting;upd()}).observe(hero)
   modal.addEventListener('click', (e) => { if (e.target === modal) close(); if (e.target.closest('[data-tm-close]') || e.target.closest('#tourBox a[href="#lead"]')) close(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.hidden) close(); });
   const snd = document.getElementById('tmSound');
-  snd.addEventListener('click', () => { const ok = window.dkTour && window.dkTour.enableSound(); snd.textContent = ok ? '🔊 הקול פועל' : 'אין קול עברי בדפדפן'; snd.disabled = true; });
+  const soundState = (ok) => { snd.textContent = ok ? '🔊 הקול פועל' : 'אין קול עברי בדפדפן'; snd.disabled = true; };
+  window.dkTour = Object.assign(window.dkTour || {}, { onSound(ok) { if (ok) soundState(true); } });
+  snd.addEventListener('click', (e) => { e.stopPropagation(); const ok = window.dkTour && window.dkTour.enableSound(); soundState(ok); });
+  // הדפדפנים חוסמים קול עד הפעולה הראשונה – לכן הלחיצה/המקש הראשונים בכל מקום מפעילים את הקריין
+  const firstAct = (e) => {
+    if (modal.hidden || snd.disabled) return;
+    if (e.target && e.target.closest && e.target.closest('#tmX')) return;
+    const ok = window.dkTour && window.dkTour.enableSound(); soundState(ok);
+  };
+  ['pointerdown', 'keydown', 'touchstart'].forEach((ev) => document.addEventListener(ev, firstAct, { capture: true, passive: true }));
   // כפתור "הדרכה" בראש העמוד – גולל להדרכה ומפעיל עם קול
   document.querySelectorAll('[data-tour-open]').forEach((b) => b.addEventListener('click', () => {
     close(); const sec = document.getElementById('tour'); if (!sec) return;
@@ -1430,6 +1460,13 @@ new IntersectionObserver(e=>{pastHero=!e[0].isIntersecting;upd()}).observe(hero)
   }));
   // בכניסה הראשונה בלבד – נפתח לבד
   if (!seen && !document.documentElement.classList.contains('noanim')) setTimeout(open, 1500);
+})();
+
+/* ===== סרטון "מבפנים" – רק בלחיצה ===== */
+(() => { const v = document.getElementById('demoVid'), b = document.getElementById('demoPlay'); if (!v || !b) return;
+  b.addEventListener('click', () => { b.hidden = true; v.play().catch(() => {}); });
+  v.addEventListener('play', () => { b.hidden = true; const h = document.getElementById('hv'); if (h && !h.muted) { h.muted = true; } });
+  v.addEventListener('ended', () => { b.hidden = false; b.querySelector('span').textContent = 'צפייה חוזרת'; });
 })();
 /* ===== נגישות ===== */
 (() => {
@@ -1500,7 +1537,7 @@ new IntersectionObserver(e=>{pastHero=!e[0].isIntersecting;upd()}).observe(hero)
     { say: 'רוצים לראות את זה על הקלטה שלכם? השאירו פרטים, ונחזור אליכם.', url: 'דברי קודש', target: '.t-btn',
       html: `<div style="text-align:center"><h4>רוצים לראות את זה על הקלטה שלכם?</h4><p style="color:#4d566b;margin:6px 0 14px">שלחו לנו שיחה אחת – ונחזיר אותה כחוברת.</p><a class="t-btn" href="#lead" style="text-decoration:none;pointer-events:auto">לתיאום הדגמה</a></div>` },
   ];
-  const synth = window.speechSynthesis; let voice = null, muted = false, soundOn = false;
+  const synth = window.speechSynthesis; let voice = null, muted = false, soundOn = false, soundTry = false;
   const pickVoice = () => { if (!synth) return; const vs = synth.getVoices(); voice = vs.find((v) => /^he/i.test(v.lang) && /online|natural/i.test(v.name)) || vs.find((v) => /^he|^iw/i.test(v.lang)) || null; };
   if (synth) { pickVoice(); synth.addEventListener && synth.addEventListener('voiceschanged', pickVoice); }
   let i = -1, playing = false, token = 0, timer = null;
@@ -1509,11 +1546,11 @@ new IntersectionObserver(e=>{pastHero=!e[0].isIntersecting;upd()}).observe(hero)
     return new Promise((res) => {
       const minT = 1400 + text.length * 62;
       const t0 = Date.now(); const done = () => { const left = Math.max(0, 900 - (Date.now() - t0 - minT)); robot.classList.remove('talk'); res(); };
-      if (!synth || !voice || muted || !soundOn) { robot.classList.toggle('talk', !muted && false); setTimeout(() => res(), minT); return; }
+      if (!synth || !voice || muted || !(soundOn || soundTry)) { robot.classList.toggle('talk', !muted && false); setTimeout(() => res(), minT); return; }
       try { synth.cancel(); } catch (e) {}
       const u = new SpeechSynthesisUtterance(text); u.voice = voice; u.lang = voice.lang; u.pitch = 0.35; u.rate = 0.98; u.volume = 1;
       let finished = false; const fin = () => { if (finished) return; finished = true; robot.classList.remove('talk'); setTimeout(res, 500); };
-      u.onstart = () => robot.classList.add('talk'); u.onend = fin; u.onerror = fin;
+      u.onstart = () => { robot.classList.add('talk'); if (soundTry) { soundOn = true; soundTry = false; window.dkTour && window.dkTour.onSound && window.dkTour.onSound(true); } }; u.onend = fin; u.onerror = (ev) => { if (soundTry && ev && /not-allowed|interrupted/.test(ev.error || '')) { soundTry = false; window.dkTour && window.dkTour.onSound && window.dkTour.onSound(false); } fin(); };
       setTimeout(fin, minT * 2.2 + 4000); // ביטחון אם הקול נתקע
       synth.speak(u);
     });
@@ -1549,11 +1586,13 @@ new IntersectionObserver(e=>{pastHero=!e[0].isIntersecting;upd()}).observe(hero)
     note.textContent = voice ? 'הקריינות בקול ממוחשב של הדפדפן. אפשר להשתיק בכפתור הרמקול.' : 'בדפדפן הזה אין קול עברי – ההדרכה מוצגת בכתוביות.';
     run(0);
   });
+  $t('tRestart').addEventListener('click', () => { pickVoice(); soundOn = true; playB.hidden = true; run(0); });
   tog.addEventListener('click', () => { soundOn = true; if (playing) stop(); else { playB.hidden = true; run(i < 0 || i >= S.length - 1 ? 0 : i); } });
   muteB.addEventListener('click', () => { muted = !muted; muteB.innerHTML = muted ? SI('mute') : SI('sound'); muteB.setAttribute('aria-pressed', muted ? 'true' : 'false'); if (muted) { try { synth && synth.cancel(); } catch (e) {} } });
   document.addEventListener('visibilitychange', () => { if (document.hidden && playing) stop(); });
   window.dkTour = Object.assign(window.dkTour || {}, {
-    autoStart() { pickVoice(); playB.hidden = true; note.textContent = 'ההדרכה מוצגת בכתוביות. לחצו על ״הפעלת הקול״ כדי לשמוע את הקריין.'; run(0); },
+    autoStart() { pickVoice(); soundTry = true; playB.hidden = true; note.textContent = 'לחיצה בכל מקום מפעילה את הקריין. אפשר להשתיק בכפתור הרמקול.'; run(0); },
+    restart() { playB.hidden = true; run(0); },
     enableSound() { pickVoice(); soundOn = true; muted = false; muteB.innerHTML = SI('sound'); muteB.setAttribute('aria-pressed', 'false'); note.textContent = voice ? 'הקריינות בקול ממוחשב של הדפדפן. אפשר להשתיק בכפתור הרמקול.' : 'בדפדפן הזה אין קול עברי – ההדרכה מוצגת בכתוביות.'; if (playing) { run(i < 0 ? 0 : i); } return !!voice; },
     stop() { stop(); }, isPlaying: () => playing
   });
