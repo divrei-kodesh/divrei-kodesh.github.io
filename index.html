@@ -589,19 +589,23 @@ html.hc .hero p,html.hc .private p,html.hc .lead-band p,html.hc .lead-band li,ht
 .tour-link{display:inline-flex;align-items:center;gap:6px;border:1.5px solid #d9bd7d;background:#fffaf0;color:#7a5410;border-radius:999px;padding:.3em .85em;font:800 .95rem 'Assistant',Arial,sans-serif;cursor:pointer;margin-inline-start:auto}
 .tour-link .si{width:.9em;height:.9em;color:#b8892b}
 .tour-link + .lang-link{margin-inline-start:0}
-.tour-pop{position:fixed;z-index:80;top:84px;right:24px;width:min(380px,calc(100% - 32px));display:flex;gap:14px;align-items:flex-start;background:#fff;border:2px solid #13214a;border-radius:20px;padding:18px 18px 14px;box-shadow:0 30px 60px -20px rgba(19,33,74,.55);animation:tpIn .5s cubic-bezier(.3,1.3,.5,1) both}
-.tour-pop[hidden]{display:none}
-@keyframes tpIn{from{opacity:0;transform:translateY(30px) scale(.96)}to{opacity:1;transform:none}}
-.tp-robot{width:58px;height:58px;flex:none;animation:tpBob 2.4s ease-in-out infinite}
-@keyframes tpBob{50%{transform:translateY(-5px)}}
-.tour-pop b{display:block;font:900 1.2rem 'Frank Ruhl Libre',serif;color:var(--ink);padding-inline-end:22px}
-.tour-pop p{margin:4px 0 12px;color:#3d4559}
-.tp-btns{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-.tp-btns .btn{padding:.6em 1.3em;font-size:1rem;animation:none}
-.tp-no{background:none;border:0;color:var(--muted);font:700 .95rem 'Assistant',Arial,sans-serif;cursor:pointer;text-decoration:underline}
-.tour-pop small{display:block;margin-top:10px;color:var(--muted);font-size:.82rem}
-.tp-x{position:absolute;top:8px;left:10px;width:32px;height:32px;border-radius:50%;border:0;background:#eef1f8;color:var(--ink);font-size:1.3rem;line-height:1;cursor:pointer}
-@media (max-width:760px){.tour-pop{right:16px;top:76px}}
+.tour-modal{position:fixed;inset:0;z-index:95;background:rgba(8,14,34,.72);backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;padding:16px;animation:tmFade .35s ease both}
+.tour-modal[hidden]{display:none}
+@keyframes tmFade{from{opacity:0}to{opacity:1}}
+.tm-box{position:relative;width:min(900px,100%);max-height:calc(100dvh - 32px);overflow:auto;background:#fff;border-radius:22px;padding:18px 18px 14px;box-shadow:0 40px 90px -30px rgba(0,0,0,.7);animation:tmIn .45s cubic-bezier(.3,1.2,.5,1) both}
+@keyframes tmIn{from{transform:translateY(24px) scale(.97)}to{transform:none}}
+.tm-x{position:absolute;top:10px;left:10px;width:46px;height:46px;border-radius:50%;border:0;background:#13214a;color:#fff;font-size:1.8rem;line-height:1;cursor:pointer;z-index:3;box-shadow:0 6px 16px -6px rgba(0,0,0,.5)}
+.tm-x:hover{background:#22377a}
+.tm-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding-inline-end:54px;margin-bottom:12px}
+.tm-head b{font:900 clamp(1.05rem,2.4vw,1.35rem) 'Frank Ruhl Libre',serif;color:var(--ink);flex:1;min-width:220px}
+.tm-sound{border:2px solid #b8892b;background:#fffaf0;color:#7a5410;border-radius:999px;padding:.45em 1.1em;font:800 .98rem 'Assistant',Arial,sans-serif;cursor:pointer;animation:tmPulse 1.8s ease-in-out infinite}
+.tm-sound:disabled{animation:none;opacity:.8;cursor:default}
+@keyframes tmPulse{50%{box-shadow:0 0 0 6px rgba(212,166,63,.25)}}
+.tm-box .tour{margin:0;max-width:none}
+.tm-end{margin-top:14px;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;background:var(--gold-soft);border-radius:16px;padding:14px;animation:tIn .5s both}
+.tm-end[hidden]{display:none}.tm-end b{font:900 1.2rem 'Frank Ruhl Libre',serif;color:var(--ink)}
+html.tm-open{overflow:hidden}
+@media (max-width:640px){.tm-box{padding:12px 10px 10px;border-radius:16px}.tm-x{width:42px;height:42px;top:6px;left:6px}.tm-head{padding-inline-end:46px}.tm-box .t-cap{font-size:1rem}.tm-end .btn{width:100%}}
 @media (max-width:1320px){.tour-link{margin-inline-start:auto}}
 @media (max-width:560px){.tour-link span{display:none}.tour-link{padding:.4em .55em}}
 @media (max-width:380px){.top .btn-gold{display:none}}
@@ -1129,12 +1133,13 @@ html.hc .hero p,html.hc .private p,html.hc .lead-band p,html.hc .lead-band li,ht
     </div>
   </div>
 </div>
-<div class="tour-pop" id="tourPop" role="dialog" aria-modal="false" aria-labelledby="tourPopT" hidden>
-  <button type="button" class="tp-x" id="tourPopX" aria-label="סגירה">×</button>
-  <div class="tp-robot" aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="10" y="18" width="44" height="34" rx="10" fill="#13214a" stroke="#e7c77d" stroke-width="2.5"/><circle cx="24" cy="33" r="5" fill="#e7c77d"/><circle cx="40" cy="33" r="5" fill="#e7c77d"/><rect x="23" y="42" width="18" height="4" rx="2" fill="#e7c77d"/><path d="M32 18V10" stroke="#e7c77d" stroke-width="2.5"/><circle cx="32" cy="8" r="3.5" fill="#e7c77d"/></svg></div>
-  <div><b id="tourPopT">ברוכים הבאים לדברי קודש!</b><p>רוצים לראות בדקה אחת איך המערכת עובדת?</p>
-  <div class="tp-btns"><button type="button" class="btn btn-gold" data-tour-open>צפו בהדרכה</button><button type="button" class="tp-no" id="tourPopNo">לא עכשיו</button></div>
-  <small>אפשר תמיד לחזור להדרכה בכפתור ▶ ״הדרכה״ שבראש העמוד.</small></div>
+<div class="tour-modal" id="tourModal" role="dialog" aria-modal="true" aria-labelledby="tmTitle" hidden>
+  <div class="tm-box">
+    <button type="button" class="tm-x" id="tmX" aria-label="סגירת ההדרכה">×</button>
+    <div class="tm-head"><b id="tmTitle">ברוכים הבאים! כך עובדת דברי קודש – בדקה אחת</b><button type="button" class="tm-sound" id="tmSound">🔊 הפעלת הקול</button></div>
+    <div id="tmSlot"></div>
+    <div class="tm-end" id="tmEnd" hidden><b>רוצים לראות את זה על הקלטה שלכם?</b><a class="btn btn-gold" href="#lead" data-tm-close>תיאום הדגמה חיה על הקלטה שלכם</a></div>
+  </div>
 </div>
 <button class="chat-fab" id="chatFab" type="button" aria-label="פתיחת הצ'אט – שאלות על המערכת"><svg class="si" aria-hidden="true" focusable="false"><use href="#i-speech"/></svg><span class="dot"></span></button>
 <div class="chat-hint" id="chatHint" data-openchat role="button" tabindex="0">שלום! רוצים לשמוע איך זה יעבוד אצלכם?</div>
@@ -1393,24 +1398,38 @@ new IntersectionObserver(e=>{pastHero=!e[0].isIntersecting;upd()}).observe(hero)
 (() => { const bar = document.getElementById('spBar'); if (!bar) return;
   new IntersectionObserver((e, o) => { if (e[0].isIntersecting) { setTimeout(() => bar.classList.add('in'), 200); o.disconnect(); } }, { threshold: .5 }).observe(bar); })();
 
-/* ===== הצעת הדרכה – רק בכניסה הראשונה ===== */
+/* ===== ההדרכה נפתחת לבד בכניסה הראשונה (בחלון, עם איקס) ===== */
 (() => {
-  const pop = document.getElementById('tourPop'); if (!pop) return;
-  const KEY = 'dk-tour-offered';
+  const modal = document.getElementById('tourModal'), slot = document.getElementById('tmSlot'), box = document.getElementById('tourBox');
+  if (!modal || !box) return;
+  const home = box.parentNode, homeNext = box.nextSibling, KEY = 'dk-tour-seen';
   let seen = false; try { seen = localStorage.getItem(KEY) === '1'; } catch (e) {}
   const mark = () => { try { localStorage.setItem(KEY, '1'); } catch (e) {} };
-  const close = () => { pop.hidden = true; mark(); };
-  const openTour = () => {
-    close();
-    const box = document.getElementById('tour'); if (!box) return;
-    box.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    setTimeout(() => { const b = document.getElementById('tPlay'); if (b && !b.hidden) b.click(); }, 900);
+  let lastFocus = null;
+  const open = () => {
+    lastFocus = document.activeElement; slot.appendChild(box); modal.hidden = false; document.documentElement.classList.add('tm-open');
+    document.getElementById('tmEnd').hidden = true; mark();
+    window.dkTour && window.dkTour.autoStart(); setTimeout(() => document.getElementById('tmX').focus(), 50);
   };
-  document.querySelectorAll('[data-tour-open]').forEach((b) => b.addEventListener('click', openTour));
-  document.getElementById('tourPopX').addEventListener('click', close);
-  document.getElementById('tourPopNo').addEventListener('click', close);
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !pop.hidden) close(); });
-  if (!seen) setTimeout(() => { pop.hidden = false; mark(); }, 2500);
+  const close = () => {
+    if (modal.hidden) return; window.dkTour && window.dkTour.stop();
+    home.insertBefore(box, homeNext); modal.hidden = true; document.documentElement.classList.remove('tm-open');
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  };
+  window.dkTour = Object.assign(window.dkTour || {}, { onEnd() { if (!modal.hidden) document.getElementById('tmEnd').hidden = false; } });
+  document.getElementById('tmX').addEventListener('click', close);
+  modal.addEventListener('click', (e) => { if (e.target === modal) close(); if (e.target.closest('[data-tm-close]') || e.target.closest('#tourBox a[href="#lead"]')) close(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.hidden) close(); });
+  const snd = document.getElementById('tmSound');
+  snd.addEventListener('click', () => { const ok = window.dkTour && window.dkTour.enableSound(); snd.textContent = ok ? '🔊 הקול פועל' : 'אין קול עברי בדפדפן'; snd.disabled = true; });
+  // כפתור "הדרכה" בראש העמוד – גולל להדרכה ומפעיל עם קול
+  document.querySelectorAll('[data-tour-open]').forEach((b) => b.addEventListener('click', () => {
+    close(); const sec = document.getElementById('tour'); if (!sec) return;
+    sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setTimeout(() => { const p = document.getElementById('tPlay'); if (p && !p.hidden) p.click(); else if (window.dkTour) window.dkTour.enableSound(); }, 700);
+  }));
+  // בכניסה הראשונה בלבד – נפתח לבד
+  if (!seen && !document.documentElement.classList.contains('noanim')) setTimeout(open, 1500);
 })();
 /* ===== נגישות ===== */
 (() => {
@@ -1425,7 +1444,7 @@ new IntersectionObserver(e=>{pastHero=!e[0].isIntersecting;upd()}).observe(hero)
     try { localStorage.setItem('dk-a11y', JSON.stringify(st)); } catch (e) {}
   };
   apply();
-  btn.addEventListener('click', () => { const tp = document.getElementById('tourPop'); if (tp && !tp.hidden) { tp.hidden = true; try { localStorage.setItem('dk-tour-offered', '1'); } catch (e) {} } const open = pn.hidden; pn.hidden = !open; btn.setAttribute('aria-expanded', open ? 'true' : 'false'); if (open) pn.querySelector('button').focus(); });
+  btn.addEventListener('click', () => { const open = pn.hidden; pn.hidden = !open; btn.setAttribute('aria-expanded', open ? 'true' : 'false'); if (open) pn.querySelector('button').focus(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !pn.hidden) { pn.hidden = true; btn.setAttribute('aria-expanded', 'false'); btn.focus(); } });
   document.addEventListener('click', (e) => { if (!pn.hidden && !pn.contains(e.target) && !btn.contains(e.target)) { pn.hidden = true; btn.setAttribute('aria-expanded', 'false'); } });
   pn.addEventListener('click', (e) => {
@@ -1481,7 +1500,7 @@ new IntersectionObserver(e=>{pastHero=!e[0].isIntersecting;upd()}).observe(hero)
     { say: 'רוצים לראות את זה על הקלטה שלכם? השאירו פרטים, ונחזור אליכם.', url: 'דברי קודש', target: '.t-btn',
       html: `<div style="text-align:center"><h4>רוצים לראות את זה על הקלטה שלכם?</h4><p style="color:#4d566b;margin:6px 0 14px">שלחו לנו שיחה אחת – ונחזיר אותה כחוברת.</p><a class="t-btn" href="#lead" style="text-decoration:none;pointer-events:auto">לתיאום הדגמה</a></div>` },
   ];
-  const synth = window.speechSynthesis; let voice = null, muted = false;
+  const synth = window.speechSynthesis; let voice = null, muted = false, soundOn = false;
   const pickVoice = () => { if (!synth) return; const vs = synth.getVoices(); voice = vs.find((v) => /^he/i.test(v.lang) && /online|natural/i.test(v.name)) || vs.find((v) => /^he|^iw/i.test(v.lang)) || null; };
   if (synth) { pickVoice(); synth.addEventListener && synth.addEventListener('voiceschanged', pickVoice); }
   let i = -1, playing = false, token = 0, timer = null;
@@ -1490,7 +1509,7 @@ new IntersectionObserver(e=>{pastHero=!e[0].isIntersecting;upd()}).observe(hero)
     return new Promise((res) => {
       const minT = 1400 + text.length * 62;
       const t0 = Date.now(); const done = () => { const left = Math.max(0, 900 - (Date.now() - t0 - minT)); robot.classList.remove('talk'); res(); };
-      if (!synth || !voice || muted) { robot.classList.toggle('talk', !muted && false); setTimeout(() => res(), minT); return; }
+      if (!synth || !voice || muted || !soundOn) { robot.classList.toggle('talk', !muted && false); setTimeout(() => res(), minT); return; }
       try { synth.cancel(); } catch (e) {}
       const u = new SpeechSynthesisUtterance(text); u.voice = voice; u.lang = voice.lang; u.pitch = 0.35; u.rate = 0.98; u.volume = 1;
       let finished = false; const fin = () => { if (finished) return; finished = true; robot.classList.remove('talk'); setTimeout(res, 500); };
@@ -1521,18 +1540,23 @@ new IntersectionObserver(e=>{pastHero=!e[0].isIntersecting;upd()}).observe(hero)
   async function run(from) {
     const tk = ++token; playing = true; setTog();
     for (let k = from; k < S.length; k++) { if (tk !== token) return; await show(k, tk); if (tk !== token) return; await sleep(600); }
-    if (tk === token) { playing = false; setTog(true); playB.hidden = false; playB.querySelector('span').textContent = 'צפייה חוזרת'; cur.classList.remove('on'); }
+    if (tk === token) { playing = false; setTog(true); playB.hidden = false; playB.querySelector('span').textContent = 'צפייה חוזרת'; cur.classList.remove('on'); if (window.dkTour && window.dkTour.onEnd) window.dkTour.onEnd(); }
   }
   function stop() { token++; playing = false; clearTimeout(timer); try { synth && synth.cancel(); } catch (e) {} robot.classList.remove('talk'); setTog(); }
   function setTog(end) { tog.innerHTML = playing ? SI('pause') : SI('play'); tog.setAttribute('aria-label', playing ? 'השהיה' : 'המשך'); }
   playB.addEventListener('click', () => {
-    pickVoice(); playB.hidden = true;
+    pickVoice(); soundOn = true; playB.hidden = true;
     note.textContent = voice ? 'הקריינות בקול ממוחשב של הדפדפן. אפשר להשתיק בכפתור הרמקול.' : 'בדפדפן הזה אין קול עברי – ההדרכה מוצגת בכתוביות.';
     run(0);
   });
-  tog.addEventListener('click', () => { if (playing) stop(); else { playB.hidden = true; run(i < 0 || i >= S.length - 1 ? 0 : i); } });
+  tog.addEventListener('click', () => { soundOn = true; if (playing) stop(); else { playB.hidden = true; run(i < 0 || i >= S.length - 1 ? 0 : i); } });
   muteB.addEventListener('click', () => { muted = !muted; muteB.innerHTML = muted ? SI('mute') : SI('sound'); muteB.setAttribute('aria-pressed', muted ? 'true' : 'false'); if (muted) { try { synth && synth.cancel(); } catch (e) {} } });
   document.addEventListener('visibilitychange', () => { if (document.hidden && playing) stop(); });
+  window.dkTour = Object.assign(window.dkTour || {}, {
+    autoStart() { pickVoice(); playB.hidden = true; note.textContent = 'ההדרכה מוצגת בכתוביות. לחצו על ״הפעלת הקול״ כדי לשמוע את הקריין.'; run(0); },
+    enableSound() { pickVoice(); soundOn = true; muted = false; muteB.innerHTML = SI('sound'); muteB.setAttribute('aria-pressed', 'false'); note.textContent = voice ? 'הקריינות בקול ממוחשב של הדפדפן. אפשר להשתיק בכפתור הרמקול.' : 'בדפדפן הזה אין קול עברי – ההדרכה מוצגת בכתוביות.'; if (playing) { run(i < 0 ? 0 : i); } return !!voice; },
+    stop() { stop(); }, isPlaying: () => playing
+  });
   show(0, -1); cap.textContent = 'לחצו על ״הפעלת ההדרכה״ כדי להתחיל.'; stepEl.textContent = `0/${S.length}`; prog.style.width = '0';
 })();
 </script>
