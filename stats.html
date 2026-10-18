@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>כניסות לאתר | דברי קודש</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 rx=%2214%22 fill=%22%2313214a%22/%3E%3Cpath d=%22M32 24 C25 19 16 19 9 22 V50 C16 47 25 47 32 52 C39 47 48 47 55 50 V22 C48 19 39 19 32 24Z%22 fill=%22%23d4a63f%22/%3E%3C/svg%3E">
+<style>
+@font-face{font-family:'Frank Ruhl Libre';src:url(fonts/frank-ruhl.woff) format('woff');font-weight:300 900;font-display:swap}
+@font-face{font-family:'Assistant';src:url(fonts/assistant.woff) format('woff');font-weight:200 800;font-display:swap}
+:root{--navy:#13214a;--navy2:#1d2f63;--gold:#c99a34;--gold2:#e7c77d;--cream:#faf6ee;--ink:#1d2433;--mute:#5d6577;--line:#e8e0cf;--card:#fff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:'Assistant',system-ui,Arial,sans-serif;font-size:17px;line-height:1.5}
+header{background:var(--navy);color:#fff;padding:18px 16px}
+header .in{max-width:980px;margin:0 auto;display:flex;align-items:center;gap:12px;justify-content:space-between;flex-wrap:wrap}
+header h1{font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:26px;margin:0;color:var(--gold2)}
+header small{color:#c9cfdf}
+main{max-width:980px;margin:0 auto;padding:22px 16px 60px}
+.gate{max-width:420px;margin:40px auto;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;box-shadow:0 8px 30px rgba(19,33,74,.08)}
+.gate h2{margin:0 0 6px;font-family:'Frank Ruhl Libre',serif;color:var(--navy)}
+.gate p{margin:0 0 14px;color:var(--mute)}
+input{width:100%;font:inherit;padding:12px 14px;border:1px solid #cfc6b2;border-radius:10px;background:#fff;direction:ltr;text-align:center;letter-spacing:.08em}
+button{font:inherit;font-weight:700;border:0;border-radius:999px;padding:11px 22px;cursor:pointer;background:linear-gradient(180deg,var(--gold2),var(--gold));color:var(--navy)}
+button.ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.35);padding:7px 14px;font-weight:600}
+.err{color:#a1261b;margin-top:10px;min-height:1.4em}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+.tile .n{font-size:34px;font-weight:800;color:var(--navy);line-height:1.1;font-variant-numeric:tabular-nums}
+.tile .l{color:var(--mute);font-size:15px}
+.tile .s{color:var(--gold);font-weight:700;font-size:14px}
+section{margin-top:22px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+section h3{margin:0 0 12px;font-family:'Frank Ruhl Libre',serif;color:var(--navy);font-size:21px}
+.days{display:flex;align-items:flex-end;gap:6px;height:170px;direction:ltr;padding-top:10px}
+.day{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;min-width:0}
+.bar{width:100%;max-width:38px;background:var(--navy2);border-radius:6px 6px 0 0;position:relative;min-height:2px}
+.bar b{position:absolute;top:-20px;left:0;right:0;text-align:center;font-size:13px;color:var(--ink);font-weight:700}
+.day span{font-size:12px;color:var(--mute);margin-top:6px;white-space:nowrap}
+table{width:100%;border-collapse:collapse}
+td,th{padding:8px 6px;border-bottom:1px solid #f0eadd;text-align:right;font-size:16px}
+th{color:var(--mute);font-weight:600;font-size:14px}
+td.num{font-variant-numeric:tabular-nums;font-weight:700;color:var(--navy);width:90px}
+.meter{height:8px;background:#f1ebde;border-radius:99px;overflow:hidden}
+.meter i{display:block;height:100%;background:var(--gold)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.grid2 section{margin-top:22px}
+.tip{color:var(--mute);font-size:15px}
+.tip code{background:#f3eee2;padding:1px 6px;border-radius:6px;direction:ltr;display:inline-block}
+.empty{color:var(--mute)}
+@media (max-width:760px){.tiles{grid-template-columns:1fr 1fr}.grid2{grid-template-columns:1fr}.tile .n{font-size:28px}.day span{font-size:10px}}
+</style>
+</head>
+<body>
+<header><div class="in"><div><h1>כניסות לאתר</h1><small>דברי קודש · דף פרטי</small></div><div id="hdrBtns" hidden><button class="ghost" id="refresh">רענון</button> <button class="ghost" id="logout">יציאה</button></div></div></header>
+<main>
+  <div class="gate" id="gate">
+    <h2>כניסה</h2>
+    <p>הקלידו את הקוד הפרטי כדי לראות את מספר הכניסות.</p>
+    <form id="f"><input id="code" autocomplete="off" inputmode="latin" placeholder="קוד" aria-label="קוד פרטי"><div style="margin-top:12px;text-align:center"><button type="submit">הצגה</button></div></form>
+    <div class="err" id="err" role="alert"></div>
+  </div>
+  <div id="dash" hidden>
+    <div class="tiles">
+      <div class="tile"><div class="l">היום</div><div class="n" id="tToday">0</div><div class="s" id="tTodayU"></div></div>
+      <div class="tile"><div class="l">7 ימים אחרונים</div><div class="n" id="tWeek">0</div><div class="s" id="tWeekU"></div></div>
+      <div class="tile"><div class="l">30 ימים אחרונים</div><div class="n" id="tMonth">0</div><div class="s" id="tMob"></div></div>
+      <div class="tile"><div class="l">מתחילת הספירה</div><div class="n" id="tTotal">0</div><div class="s" id="tTotalU"></div></div>
+    </div>
+    <section><h3>כניסות לפי יום – שבועיים אחרונים</h3><div class="days" id="days"></div></section>
+    <section><h3>מאיזה קישור הגיעו (30 יום)</h3><table id="tSrc"></table>
+      <p class="tip">כדי לדעת כמה נכנסו מפרסום מסוים, שלחו קישור עם סימון משלו, למשל <code>divrei-kodesh.github.io/?src=mail</code> או <code>?src=moda</code>. כניסה בלי סימון מופיעה כ"—".</p></section>
+    <div class="grid2">
+      <section><h3>מאיזה אתר הגיעו</h3><table id="tRef"></table></section>
+      <section><h3>באיזה דף נכנסו</h3><table id="tPage"></table></section>
+    </div>
+    <p class="tip" style="margin-top:18px">הכניסות שלכם לא נספרות אם נכנסתם פעם אחת לקישור <code>divrei-kodesh.github.io/?me=1</code> מהמחשב או הטלפון שלכם. כל כניסה נספרת פעם אחת לכל דף בביקור, ו"מבקרים שונים" נספרים לפי דפדפן.</p>
+  </div>
+</main>
+<script>
+const URL_RPC='https://afmxylpcwqydjgiewewc.supabase.co/rest/v1/rpc/site_stats';
+const KEY='sb_publishable_4S8OmERqXFNnc6zI1twl8A_zJbIrxl9';
+const $=(s)=>document.querySelector(s);
+const esc=(s)=>String(s??'').replace(/[&<>"']/g,(c)=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt=(n)=>Number(n||0).toLocaleString('he-IL');
+const PAGES={'/':'דף הבית','/index.html':'דף הבית','/yi.html':'יידיש','/mechonim.html':'מכונים','/negishut.html':'נגישות','/kaltot-yeshanot.html':'הקלטות ישנות','/archion-sichot.html':'ארכיון שיחות','/alut-hakldada.html':'עלות הקלדה','/tamlul-yiddish.html':'תמלול יידיש','/alon-shavui.html':'עלון שבועי','/hakladat-haklatot.html':'הקלדת הקלטות','/sefer-mehaklatot.html':'ספר מהקלטות','/tamlul-shiurim.html':'תמלול שיעורים'};
+let code='';try{code=localStorage.getItem('dk-stats-code')||''}catch(e){}
+async function load(){
+  $('#err').textContent='';
+  let r;
+  try{r=await fetch(URL_RPC,{method:'POST',headers:{'Content-Type':'application/json',apikey:KEY},body:JSON.stringify({k:code})});}
+  catch(e){$('#err').textContent='אין חיבור לשרת. בדקו את החיבור ונסו שוב.';showGate();return;}
+  if(!r.ok){const t=await r.text();$('#err').textContent=/wrong code/.test(t)?'הקוד לא נכון.':'עדיין אין נתונים – ייתכן שהטבלה לא הוקמה.';try{localStorage.removeItem('dk-stats-code')}catch(e){}showGate();return;}
+  const d=await r.json(); try{localStorage.setItem('dk-stats-code',code)}catch(e){}
+  render(d);
+}
+function showGate(){$('#gate').hidden=false;$('#dash').hidden=true;$('#hdrBtns').hidden=true}
+function rows(el,list,head,map){
+  if(!list.length){el.innerHTML='<tr><td class="empty">אין עדיין נתונים</td></tr>';return}
+  const max=Math.max(...list.map(x=>x.n));
+  el.innerHTML='<tr><th>'+head+'</th><th>כניסות</th><th style="width:30%"></th></tr>'+list.map(x=>`<tr><td>${esc(map?map(x.s):x.s)}</td><td class="num">${fmt(x.n)}</td><td><div class="meter"><i style="width:${Math.round(100*x.n/max)}%"></i></div></td></tr>`).join('');
+}
+function render(d){
+  $('#gate').hidden=true;$('#dash').hidden=false;$('#hdrBtns').hidden=false;
+  $('#tToday').textContent=fmt(d.today);$('#tTodayU').textContent=fmt(d.today_unique)+' מבקרים שונים';
+  $('#tWeek').textContent=fmt(d.week);$('#tWeekU').textContent=fmt(d.week_unique)+' מבקרים שונים';
+  $('#tMonth').textContent=fmt(d.month);$('#tMob').textContent=fmt(d.mobile_pct)+'% מהטלפון';
+  $('#tTotal').textContent=fmt(d.total);$('#tTotalU').textContent=fmt(d.unique_total)+' מבקרים שונים';
+  const by={};(d.by_day||[]).forEach(x=>by[x.d]=x);
+  const days=[];const now=new Date(new Date().toLocaleString('en-US',{timeZone:'Asia/Jerusalem'}));
+  for(let i=13;i>=0;i--){const t=new Date(now);t.setDate(now.getDate()-i);const k=t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');days.push({k,lab:t.getDate()+'.'+(t.getMonth()+1),n:(by[k]||{}).n||0})}
+  const mx=Math.max(1,...days.map(x=>x.n));
+  $('#days').innerHTML=days.map(x=>`<div class="day"><div class="bar" style="height:${Math.round(130*x.n/mx)}px">${x.n?'<b>'+x.n+'</b>':''}</div><span>${x.lab}</span></div>`).join('');
+  rows($('#tSrc'),d.by_src||[],'סימון בקישור');
+  rows($('#tRef'),d.by_ref||[],'אתר מפנה',s=>s==='—'?'כניסה ישירה':s);
+  rows($('#tPage'),d.by_page||[],'דף',s=>PAGES[s]||s);
+}
+$('#f').addEventListener('submit',e=>{e.preventDefault();code=$('#code').value.trim();if(code)load()});
+$('#refresh').addEventListener('click',load);
+$('#logout').addEventListener('click',()=>{try{localStorage.removeItem('dk-stats-code')}catch(e){}code='';$('#code').value='';showGate()});
+if(code)load();
+</script>
+</body>
+</html>

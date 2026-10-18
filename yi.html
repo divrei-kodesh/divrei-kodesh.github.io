@@ -216,5 +216,6 @@ document.getElementById('leadForm').addEventListener('submit', async (e) => {
   }
 });
 </script>
+<script>/* מונה כניסות – בלי עוגיות, בלי פרטים אישיים */(function(){try{if(navigator.webdriver)return;var u=new URL(location.href),q=u.searchParams,ls=window.localStorage,ss=window.sessionStorage;if(q.get('me')==='1')ls.setItem('dk-me','1');if(q.get('me')==='0')ls.removeItem('dk-me');if(ls.getItem('dk-me'))return;var v=ls.getItem('dk-vid');if(!v){v=Math.random().toString(36).slice(2)+Date.now().toString(36);ls.setItem('dk-vid',v);}var k='dk-v'+location.pathname;if(ss.getItem(k))return;ss.setItem(k,'1');var r='';try{if(document.referrer){var h=new URL(document.referrer).host;if(h!==location.host)r=h;}}catch(e){}fetch('https://afmxylpcwqydjgiewewc.supabase.co/rest/v1/site_visits',{method:'POST',keepalive:true,headers:{'Content-Type':'application/json',apikey:'sb_publishable_4S8OmERqXFNnc6zI1twl8A_zJbIrxl9',Prefer:'return=minimal'},body:JSON.stringify({page:location.pathname.slice(0,150),src:(q.get('src')||'').slice(0,50),ref:r.slice(0,200),vid:v.slice(0,40),mobile:/Mobi|Android|iPhone/i.test(navigator.userAgent)})}).catch(function(){});}catch(e){}})();</script>
 </body>
 </html>
