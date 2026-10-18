@@ -436,8 +436,7 @@ mark{background:var(--gold-soft);color:var(--ink)}
 @media(max-width:400px){.out-grid{grid-template-columns:1fr}.out.big{grid-column:auto}.hero .btn{width:100%}}
 
 /* ===== תוספות אוקטובר: אייקונים, חוברת, תהליך, הדרכה, נגישות ===== */
-.skip{position:absolute;right:-9999px;top:8px;z-index:100;background:#fff;color:var(--ink);padding:8px 14px;border-radius:8px;font-weight:800}
-.skip:focus{right:12px}
+.skip{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.skip:focus{width:auto;height:auto;clip:auto;top:8px;right:12px;z-index:100;background:#fff;color:#13214a;padding:8px 14px;border-radius:8px;font-weight:800}
 .si{width:1.15em;height:1.15em;vertical-align:-.22em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
 .feat .ic{color:#8a6414;font-size:1rem}.feat .ic .si{width:28px;height:28px}
 .out .oi{color:#8a6414}.out .oi .si{width:34px;height:34px}
@@ -447,7 +446,7 @@ mark{background:var(--gold-soft);color:var(--ink)}
 .top nav + .lang-link{margin-inline-start:0}
 .a11y-btn{display:inline-flex;align-items:center;gap:6px;border:1.5px solid var(--line);background:#fff;color:var(--ink);border-radius:999px;padding:.35em .8em;font:700 .95rem 'Assistant',Arial;cursor:pointer}
 .a11y-btn .si{width:1.3em;height:1.3em}
-.a11y-panel{position:fixed;top:72px;left:16px;z-index:70;background:#fff;border:2px solid var(--ink);border-radius:16px;padding:16px;width:min(290px,calc(100% - 32px));box-shadow:var(--shadow);display:flex;flex-direction:column;gap:8px}
+.a11y-panel{position:fixed;top:72px;left:16px;z-index:90;background:#fff;border:2px solid var(--ink);border-radius:16px;padding:16px;width:min(290px,calc(100% - 32px));box-shadow:var(--shadow);display:flex;flex-direction:column;gap:8px}
 .a11y-panel[hidden]{display:none}
 .a11y-panel b{color:var(--ink);font-size:1.05rem}
 .a11y-panel button,.a11y-panel a{font:700 1rem 'Assistant',Arial;background:var(--mist);color:var(--ink);border:1.5px solid var(--line);border-radius:10px;padding:.55em .8em;cursor:pointer;text-align:start;text-decoration:none}
@@ -584,6 +583,28 @@ html.hc .hero p,html.hc .private p,html.hc .lead-band p,html.hc .lead-band li,ht
 .sp-time i{font-style:normal;font-size:2rem;color:#b8892b;font-weight:900}
 .sp-ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:26px}
 @media (max-width:700px){.sp-cols{grid-template-columns:1fr}.sp-bar{height:64px}.sp-bar b{font-size:1.35rem}.sp-time i{transform:rotate(-90deg)}.sp-ctas .btn{width:100%}}
+@media (max-width:420px){.top .wrap{gap:6px}.brand{font-size:1.12rem;gap:6px}.brand svg{width:28px;height:28px}.brand small{display:none}.top .btn{padding:.5em .75em;font-size:.82rem}.lang-link{padding:.2em .5em;font-size:.8rem}.a11y-btn{padding:.3em}}
+
+/* ===== הצעת הדרכה בכניסה ראשונה + כפתור הדרכה בכותרת ===== */
+.tour-link{display:inline-flex;align-items:center;gap:6px;border:1.5px solid #d9bd7d;background:#fffaf0;color:#7a5410;border-radius:999px;padding:.3em .85em;font:800 .95rem 'Assistant',Arial,sans-serif;cursor:pointer;margin-inline-start:auto}
+.tour-link .si{width:.9em;height:.9em;color:#b8892b}
+.tour-link + .lang-link{margin-inline-start:0}
+.tour-pop{position:fixed;z-index:80;top:84px;right:24px;width:min(380px,calc(100% - 32px));display:flex;gap:14px;align-items:flex-start;background:#fff;border:2px solid #13214a;border-radius:20px;padding:18px 18px 14px;box-shadow:0 30px 60px -20px rgba(19,33,74,.55);animation:tpIn .5s cubic-bezier(.3,1.3,.5,1) both}
+.tour-pop[hidden]{display:none}
+@keyframes tpIn{from{opacity:0;transform:translateY(30px) scale(.96)}to{opacity:1;transform:none}}
+.tp-robot{width:58px;height:58px;flex:none;animation:tpBob 2.4s ease-in-out infinite}
+@keyframes tpBob{50%{transform:translateY(-5px)}}
+.tour-pop b{display:block;font:900 1.2rem 'Frank Ruhl Libre',serif;color:var(--ink);padding-inline-end:22px}
+.tour-pop p{margin:4px 0 12px;color:#3d4559}
+.tp-btns{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.tp-btns .btn{padding:.6em 1.3em;font-size:1rem;animation:none}
+.tp-no{background:none;border:0;color:var(--muted);font:700 .95rem 'Assistant',Arial,sans-serif;cursor:pointer;text-decoration:underline}
+.tour-pop small{display:block;margin-top:10px;color:var(--muted);font-size:.82rem}
+.tp-x{position:absolute;top:8px;left:10px;width:32px;height:32px;border-radius:50%;border:0;background:#eef1f8;color:var(--ink);font-size:1.3rem;line-height:1;cursor:pointer}
+@media (max-width:760px){.tour-pop{right:16px;top:76px}}
+@media (max-width:1320px){.tour-link{margin-inline-start:auto}}
+@media (max-width:560px){.tour-link span{display:none}.tour-link{padding:.4em .55em}}
+@media (max-width:380px){.top .btn-gold{display:none}}
 .arch-calc{margin-top:34px}
 .tm{color:#6b7385!important}
 .arch-calc h3{font-size:1.4rem}
@@ -635,6 +656,7 @@ html.hc .hero p,html.hc .private p,html.hc .lead-band p,html.hc .lead-band li,ht
       <a href="#how">איך מתחילים</a>
       <a href="#faq">שאלות</a>
     </nav>
+    <button class="tour-link" type="button" data-tour-open><svg class="si" aria-hidden="true"><use href="#i-play"/></svg><span>הדרכה</span></button>
     <a class="lang-link" href="yi.html" lang="yi" hreflang="yi">אידיש</a>
     <button class="a11y-btn" id="a11yBtn" type="button" aria-expanded="false" aria-controls="a11yPanel" aria-label="תפריט נגישות"><svg class="si" aria-hidden="true" focusable="false"><use href="#i-a11y"/></svg><span>נגישות</span></button>
     <a class="btn btn-gold" href="#lead">להשאיר פרטים</a>
@@ -1107,6 +1129,13 @@ html.hc .hero p,html.hc .private p,html.hc .lead-band p,html.hc .lead-band li,ht
     </div>
   </div>
 </div>
+<div class="tour-pop" id="tourPop" role="dialog" aria-modal="false" aria-labelledby="tourPopT" hidden>
+  <button type="button" class="tp-x" id="tourPopX" aria-label="סגירה">×</button>
+  <div class="tp-robot" aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="10" y="18" width="44" height="34" rx="10" fill="#13214a" stroke="#e7c77d" stroke-width="2.5"/><circle cx="24" cy="33" r="5" fill="#e7c77d"/><circle cx="40" cy="33" r="5" fill="#e7c77d"/><rect x="23" y="42" width="18" height="4" rx="2" fill="#e7c77d"/><path d="M32 18V10" stroke="#e7c77d" stroke-width="2.5"/><circle cx="32" cy="8" r="3.5" fill="#e7c77d"/></svg></div>
+  <div><b id="tourPopT">ברוכים הבאים לדברי קודש!</b><p>רוצים לראות בדקה אחת איך המערכת עובדת?</p>
+  <div class="tp-btns"><button type="button" class="btn btn-gold" data-tour-open>צפו בהדרכה</button><button type="button" class="tp-no" id="tourPopNo">לא עכשיו</button></div>
+  <small>אפשר תמיד לחזור להדרכה בכפתור ▶ ״הדרכה״ שבראש העמוד.</small></div>
+</div>
 <button class="chat-fab" id="chatFab" type="button" aria-label="פתיחת הצ'אט – שאלות על המערכת"><svg class="si" aria-hidden="true" focusable="false"><use href="#i-speech"/></svg><span class="dot"></span></button>
 <div class="chat-hint" id="chatHint" data-openchat role="button" tabindex="0">שלום! רוצים לשמוע איך זה יעבוד אצלכם?</div>
 <!-- ---------- הצ'אט ---------- -->
@@ -1363,6 +1392,26 @@ new IntersectionObserver(e=>{pastHero=!e[0].isIntersecting;upd()}).observe(hero)
 /* ===== פס 80/20 – מתמלא כשמגיעים אליו ===== */
 (() => { const bar = document.getElementById('spBar'); if (!bar) return;
   new IntersectionObserver((e, o) => { if (e[0].isIntersecting) { setTimeout(() => bar.classList.add('in'), 200); o.disconnect(); } }, { threshold: .5 }).observe(bar); })();
+
+/* ===== הצעת הדרכה – רק בכניסה הראשונה ===== */
+(() => {
+  const pop = document.getElementById('tourPop'); if (!pop) return;
+  const KEY = 'dk-tour-offered';
+  let seen = false; try { seen = localStorage.getItem(KEY) === '1'; } catch (e) {}
+  const mark = () => { try { localStorage.setItem(KEY, '1'); } catch (e) {} };
+  const close = () => { pop.hidden = true; mark(); };
+  const openTour = () => {
+    close();
+    const box = document.getElementById('tour'); if (!box) return;
+    box.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setTimeout(() => { const b = document.getElementById('tPlay'); if (b && !b.hidden) b.click(); }, 900);
+  };
+  document.querySelectorAll('[data-tour-open]').forEach((b) => b.addEventListener('click', openTour));
+  document.getElementById('tourPopX').addEventListener('click', close);
+  document.getElementById('tourPopNo').addEventListener('click', close);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !pop.hidden) close(); });
+  if (!seen) setTimeout(() => { pop.hidden = false; mark(); }, 2500);
+})();
 /* ===== נגישות ===== */
 (() => {
   const H = document.documentElement, btn = document.getElementById('a11yBtn'), pn = document.getElementById('a11yPanel');
@@ -1376,7 +1425,7 @@ new IntersectionObserver(e=>{pastHero=!e[0].isIntersecting;upd()}).observe(hero)
     try { localStorage.setItem('dk-a11y', JSON.stringify(st)); } catch (e) {}
   };
   apply();
-  btn.addEventListener('click', () => { const open = pn.hidden; pn.hidden = !open; btn.setAttribute('aria-expanded', open ? 'true' : 'false'); if (open) pn.querySelector('button').focus(); });
+  btn.addEventListener('click', () => { const tp = document.getElementById('tourPop'); if (tp && !tp.hidden) { tp.hidden = true; try { localStorage.setItem('dk-tour-offered', '1'); } catch (e) {} } const open = pn.hidden; pn.hidden = !open; btn.setAttribute('aria-expanded', open ? 'true' : 'false'); if (open) pn.querySelector('button').focus(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !pn.hidden) { pn.hidden = true; btn.setAttribute('aria-expanded', 'false'); btn.focus(); } });
   document.addEventListener('click', (e) => { if (!pn.hidden && !pn.contains(e.target) && !btn.contains(e.target)) { pn.hidden = true; btn.setAttribute('aria-expanded', 'false'); } });
   pn.addEventListener('click', (e) => {
