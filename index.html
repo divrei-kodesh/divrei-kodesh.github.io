@@ -670,7 +670,7 @@ html.tm-open{overflow:hidden}
       <a href="#how">איך מתחילים</a>
       <a href="#faq">שאלות</a>
     </nav>
-    <button class="tour-link" type="button" data-tour-open><svg class="si" aria-hidden="true"><use href="#i-play"/></svg><span>הדרכה</span></button>
+    
     <a class="lang-link" href="yi.html" lang="yi" hreflang="yi">אידיש</a>
     <button class="a11y-btn" id="a11yBtn" type="button" aria-expanded="false" aria-controls="a11yPanel" aria-label="תפריט נגישות"><svg class="si" aria-hidden="true" focusable="false"><use href="#i-a11y"/></svg><span>נגישות</span></button>
     <a class="btn btn-gold" href="#lead">להשאיר פרטים</a>
@@ -803,29 +803,7 @@ html.tm-open{overflow:hidden}
   </div>
 </section>
 
-<section class="block tour-band" id="tour">
-  <div class="wrap">
-    <div class="sec-h" style="margin-inline:auto;text-align:center"><h2>הדרכה של דקה: איך עובדים עם המערכת</h2><p>לחצו על ההפעלה – והמדריך הרובוטי יראה לכם צעד אחר צעד איך מעלים הקלטה, ומה מקבלים בסוף.</p></div>
-    <div class="tour" id="tourBox">
-      <div class="t-frame">
-        <div class="t-bar" aria-hidden="true"><i></i><i></i><i></i><span class="t-url" id="tUrl">דברי קודש · מערכת החצר</span></div>
-        <div class="t-screen" id="tScreen" aria-hidden="true"></div>
-        <div class="t-cursor" id="tCursor" aria-hidden="true"></div>
-        <div class="t-robot" id="tRobot" aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="10" y="18" width="44" height="34" rx="10" fill="#13214a" stroke="#e7c77d" stroke-width="2.5"/><circle cx="24" cy="33" r="5" fill="#e7c77d"/><circle cx="40" cy="33" r="5" fill="#e7c77d"/><rect class="t-mouth" x="23" y="42" width="18" height="4" rx="2" fill="#e7c77d"/><path d="M32 18V10" stroke="#e7c77d" stroke-width="2.5"/><circle cx="32" cy="8" r="3.5" fill="#e7c77d"/><rect x="5" y="28" width="5" height="12" rx="2" fill="#e7c77d"/><rect x="54" y="28" width="5" height="12" rx="2" fill="#e7c77d"/></svg></div>
-        <button class="t-play" id="tPlay" type="button"><svg class="si" aria-hidden="true" focusable="false"><use href="#i-play"/></svg><span>הפעלת ההדרכה</span></button>
-      </div>
-      <div class="t-cap" id="tCap" aria-live="polite">לחצו על ״הפעלת ההדרכה״ כדי להתחיל.</div>
-      <div class="t-ctrl">
-        <button type="button" id="tRestart" aria-label="מההתחלה" title="מההתחלה"><svg class="si" aria-hidden="true" focusable="false"><use href="#i-restart"/></svg></button>
-        <button type="button" id="tToggle" aria-label="השהיה"><svg class="si" aria-hidden="true" focusable="false"><use href="#i-pause"/></svg></button>
-        <div class="t-prog" aria-hidden="true"><i id="tProg"></i></div>
-        <span id="tStep" class="t-step">0/10</span>
-        <button type="button" id="tMute" aria-label="השתקת הקריין" aria-pressed="false"><svg class="si" aria-hidden="true" focusable="false"><use href="#i-sound"/></svg></button>
-      </div>
-      <p class="small t-note" id="tNote">ההדרכה מוצגת בכתוביות, ובדפדפנים עם קול עברי – גם בקריינות של קול ממוחשב.</p>
-    </div>
-  </div>
-</section>
+
 
 <section class="block ba-band" id="before-after">
   <div class="wrap">
@@ -1157,14 +1135,7 @@ html.tm-open{overflow:hidden}
     </div>
   </div>
 </div>
-<div class="tour-modal" id="tourModal" role="dialog" aria-modal="true" aria-labelledby="tmTitle" hidden>
-  <div class="tm-box">
-    <button type="button" class="tm-x" id="tmX" aria-label="סגירת ההדרכה">×</button>
-    <div class="tm-head"><b id="tmTitle">ברוכים הבאים! כך עובדת דברי קודש – בדקה אחת</b><button type="button" class="tm-sound" id="tmSound">🔊 הפעלת הקול</button></div>
-    <div id="tmSlot"></div>
-    <div class="tm-end" id="tmEnd" hidden><b>רוצים לראות את זה על הקלטה שלכם?</b><a class="btn btn-gold" href="#lead" data-tm-close>תיאום הדגמה חיה על הקלטה שלכם</a></div>
-  </div>
-</div>
+
 <button class="chat-fab" id="chatFab" type="button" aria-label="פתיחת הצ'אט – שאלות על המערכת"><svg class="si" aria-hidden="true" focusable="false"><use href="#i-speech"/></svg><span class="dot"></span></button>
 <div class="chat-hint" id="chatHint" data-openchat role="button" tabindex="0">שלום! רוצים לשמוע איך זה יעבוד אצלכם?</div>
 <!-- ---------- הצ'אט ---------- -->
