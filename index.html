@@ -1149,7 +1149,7 @@ html.tm-open{overflow:hidden}
 <script>
 /* ===== הגדרות שליחה ===== */
 const LEAD_TO = ['bnyytmrkwt@gmail.com', 'ay0533115854@gmail.com'];       // מייל החברה + המייל האישי
-const EJ = { service: 'service_tplus', template: 'template_gzcqacc', key: '6G0YaH5dH_TKKk_hu' };
+const EJ = { service: 'service_tplus', template: 'template_gzcqacc', thanks: 'template_s26sabl', key: '6G0YaH5dH_TKKk_hu' };  // thanks = מענה ללקוח בלי מסגרת
 const API = 'https://afmxylpcwqydjgiewewc.supabase.co/functions/v1/api';
 const SB_KEY = 'sb_publishable_4S8OmERqXFNnc6zI1twl8A_zJbIrxl9';
 const $ = (s, r = document) => r.querySelector(s);
@@ -1211,10 +1211,20 @@ function sendThanks(lead) {
   const org = clean(lead.org, 80);
   const PHONE = '053-313-6394';
   const orgLine = org ? ` עבור ${org}` : '';   // אם לא הוזן – המשפט נשאר שלם בלי רווח ריק
-  const subject = org ? `קיבלנו את פנייתך – דברי קודש · ${org}` : 'קיבלנו את פנייתך – דברי קודש';
-  const message = `תודה על פנייתך. שמחנו לקבל אותה ולשמוע על הרצון לייעל את עבודת התמלול והעריכה${orgLine}.\n\nכל חצר וכל מערכת עלון עובדת אחרת – בהיקף, בשפות ובסגנון. לכן חשוב לנו קודם כול להבין את הצרכים שלכם לעומק, לבדוק יחד מה מתאים דווקא לכם, ולראות כיצד המערכת תוכל לתת לכם את המענה הטוב ביותר.\n\nנשמח לשיחה קצרה של כמה דקות, ללא כל התחייבות. אפשר להשיב למייל זה ולציין מתי נוח לך שנתקשר, או לפנות אלינו ישירות בטלפון: ${PHONE}.\n\nבברכה,\nצוות "דברי קודש"\nטלפון: ${PHONE}\n${LEAD_TO[0]}\nhttps://divrei-kodesh.github.io`;
-  fetch('https://api.emailjs.com/api/v1.0/email/send', { method: 'POST', headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ service_id: EJ.service, template_id: EJ.template, user_id: EJ.key, template_params: { to_email: lead.email, email: lead.email, subject, title: subject, message, name: name || 'דברי קודש', to_name: name, from_name: 'דברי קודש', reply_to: LEAD_TO[0] } }) }).catch(() => {});
+  const subject = org ? `בהמשך לפנייתך – ${org}` : 'בהמשך לפנייתך – דברי קודש';
+  const greet = name ? `שלום וברכה ${name},` : 'שלום וברכה,';
+  const message = `${greet}\n\nתודה על פנייתך. שמחנו לקבל אותה ולשמוע על הרצון לייעל את עבודת התמלול והעריכה${orgLine}.\n\nכל חצר וכל מערכת עלון עובדת אחרת – בהיקף, בשפות ובסגנון. לכן חשוב לנו קודם כול להבין את הצרכים שלכם לעומק, לבדוק יחד מה מתאים דווקא לכם, ולראות כיצד המערכת תוכל לתת לכם את המענה הטוב ביותר.\n\nנשמח לשיחה קצרה של כמה דקות, ללא כל התחייבות. אפשר להשיב למייל זה ולציין מתי נוח לך שנתקשר, או לפנות אלינו ישירות בטלפון: ${PHONE}.\n\nבברכה,\nצוות "דברי קודש"\nטל' ${PHONE}`;
+  // נשלח שתי דקות אחרי מילוי הטופס, כדי שייראה כמו תשובה אישית.
+  // אם הפונה סוגר את הדף לפני כן – נשלח מיד ברגע הסגירה, כדי שאף פנייה לא תישאר בלי מענה.
+  let sent = false;
+  const go = () => {
+    if (sent) return; sent = true;
+    window.removeEventListener('pagehide', go);
+    fetch('https://api.emailjs.com/api/v1.0/email/send', { method: 'POST', keepalive: true, headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ service_id: EJ.service, template_id: EJ.thanks, user_id: EJ.key, template_params: { to_email: lead.email, subject, message, from_name: 'דברי קודש', reply_to: LEAD_TO[0] } }) }).catch(() => {});
+  };
+  setTimeout(go, 2 * 60 * 1000);
+  window.addEventListener('pagehide', go);
 }
 const validMail = (m) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(String(m).trim());
 
