@@ -1205,10 +1205,16 @@ async function sendLead(lead) {
 /* ===== מייל תודה אוטומטי למתעניין ===== */
 function sendThanks(lead) {
   if (!lead.email || !validMail(lead.email)) return;
-  const subject = 'קיבלנו את פנייתכם – דברי קודש';
-  const message = `שלום ${lead.name},\n\nתודה שפניתם לדברי קודש. קיבלנו את הפרטים, ונחזור אליכם בהקדם במייל.\n\nכדי שנוכל להכין לכם הדגמה בסגנון החצר שלכם, אפשר להשיב למייל הזה ולצרף:\n• הקלטה אחת של שיחה (קובץ שמע או קישור)\n• אם יש – דוגמה של גיליון או חוברת שכבר יצאה אצלכם\n\nהחומר נשמר בדיסקרטיות מלאה ומשמש רק להדגמה.\n\nבינתיים אפשר לצפות בהדרכה של דקה: https://divrei-kodesh.github.io/#tour\n\nבברכה,\nצוות דברי קודש\nhttps://divrei-kodesh.github.io`;
+  // שדות דינמיים: שם הפונה ושם החצר/המוסד, מנוקים מרווחים כפולים
+  const clean = (s, max) => String(s || '').replace(/\s+/g, ' ').trim().slice(0, max);
+  const name = clean(lead.name, 60);
+  const org = clean(lead.org, 80);
+  const PHONE = '053-313-6394';
+  const orgLine = org ? ` עבור ${org}` : '';   // אם לא הוזן – המשפט נשאר שלם בלי רווח ריק
+  const subject = org ? `קיבלנו את פנייתך – דברי קודש · ${org}` : 'קיבלנו את פנייתך – דברי קודש';
+  const message = `תודה על פנייתך. שמחנו לקבל אותה ולשמוע על הרצון לייעל את עבודת התמלול והעריכה${orgLine}.\n\nכל חצר וכל מערכת עלון עובדת אחרת – בהיקף, בשפות ובסגנון. לכן חשוב לנו קודם כול להבין את הצרכים שלכם לעומק, לבדוק יחד מה מתאים דווקא לכם, ולראות כיצד המערכת תוכל לתת לכם את המענה הטוב ביותר.\n\nנשמח לשיחה קצרה של כמה דקות, ללא כל התחייבות. אפשר להשיב למייל זה ולציין מתי נוח לך שנתקשר, או לפנות אלינו ישירות בטלפון: ${PHONE}.\n\nבברכה,\nצוות "דברי קודש"\nטלפון: ${PHONE}\n${LEAD_TO[0]}\nhttps://divrei-kodesh.github.io`;
   fetch('https://api.emailjs.com/api/v1.0/email/send', { method: 'POST', headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ service_id: EJ.service, template_id: EJ.template, user_id: EJ.key, template_params: { to_email: lead.email, email: lead.email, subject, title: subject, message, name: 'דברי קודש', to_name: lead.name, from_name: 'דברי קודש', reply_to: LEAD_TO[0] } }) }).catch(() => {});
+    body: JSON.stringify({ service_id: EJ.service, template_id: EJ.template, user_id: EJ.key, template_params: { to_email: lead.email, email: lead.email, subject, title: subject, message, name: name || 'דברי קודש', to_name: name, from_name: 'דברי קודש', reply_to: LEAD_TO[0] } }) }).catch(() => {});
 }
 const validMail = (m) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(String(m).trim());
 
