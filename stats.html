@@ -82,7 +82,7 @@ const KEY='sb_publishable_4S8OmERqXFNnc6zI1twl8A_zJbIrxl9';
 const $=(s)=>document.querySelector(s);
 const esc=(s)=>String(s??'').replace(/[&<>"']/g,(c)=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt=(n)=>Number(n||0).toLocaleString('he-IL');
-const PAGES={'/':'דף הבית','/index.html':'דף הבית','/yi.html':'יידיש','/mechonim.html':'מכונים','/negishut.html':'נגישות','/kaltot-yeshanot.html':'הקלטות ישנות','/archion-sichot.html':'ארכיון שיחות','/alut-hakldada.html':'עלות הקלדה','/tamlul-yiddish.html':'תמלול יידיש','/alon-shavui.html':'עלון שבועי','/hakladat-haklatot.html':'הקלדת הקלטות','/sefer-mehaklatot.html':'ספר מהקלטות','/tamlul-shiurim.html':'תמלול שיעורים'};
+const PAGES={'/':'דף הבית','/index.html':'דף הבית','/yi.html':'יידיש','/mechonim.html':'מכונים','/negishut.html':'נגישות','/kaltot-yeshanot.html':'הקלטות ישנות','/archion-sichot.html':'ארכיון שיחות','/alut-hakldada.html':'עלות הקלדה','/tamlul-yiddish.html':'תמלול יידיש','/alon-shavui.html':'עלון שבועי','/hakladat-haklatot.html':'הקלדת הקלטות','/sefer-mehaklatot.html':'ספר מהקלטות','/tamlul-shiurim.html':'תמלול שיעורים','/~lead':'✅ השאירו פרטים (פנייה)','/~tel':'📞 לחצו על הטלפון','/~mail':'✉️ לחצו על המייל'};
 let code='';try{code=localStorage.getItem('dk-stats-code')||''}catch(e){}
 {const qk=new URLSearchParams(location.search).get('k');if(qk){code=qk.trim();history.replaceState(null,'',location.pathname);}}
 async function load(){
