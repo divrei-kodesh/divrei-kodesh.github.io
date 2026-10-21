@@ -668,6 +668,14 @@ html.tm-open{overflow:hidden}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 @media (max-width:900px){.tst-grid{grid-template-columns:1fr}.ql-f{grid-template-columns:1fr 1fr}.ql-f .btn{grid-column:1/-1}}
 @media (max-width:480px){.ql-f{grid-template-columns:1fr}}
+.tq-band{padding-top:30px;padding-bottom:30px}
+.tq-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:900px;margin:0 auto}
+.tq{margin:42px 0 0;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:50px 26px 22px;text-align:center;box-shadow:var(--shadow);position:relative}
+.tq-av{position:absolute;top:-38px;left:50%;transform:translateX(-50%);width:76px;height:76px;border-radius:50%;background:var(--ink);color:#e7c77d;display:grid;place-items:center;border:4px solid #fff;box-shadow:0 0 0 2px var(--gold),0 10px 22px -10px rgba(19,33,74,.6)}
+.tq-av svg{width:34px;height:34px}
+.tq blockquote{margin:0 0 12px;font:500 1.12rem/1.7 'Frank Ruhl Libre',serif;color:var(--ink)}
+.tq figcaption{color:var(--gold);font-weight:800;font-size:.98rem}
+@media (max-width:760px){.tq-grid{grid-template-columns:1fr;gap:10px}}
 </style>
 </head>
 <body>
@@ -788,6 +796,23 @@ html.tm-open{overflow:hidden}
 <div class="who"><div class="wrap">
   <span>בשביל מי שהיום</span><b>מקשיב להקלטה ומקליד</b><b>מתרגם מיידיש לעברית</b><b>עורך ומעמד חוברת כל שבוע</b><b>מנהל ארכיון של שיחות</b>
 </div></div>
+
+<section class="block tq-band" id="says" aria-label="מה אומרים עלינו">
+  <div class="wrap">
+    <div class="tq-grid">
+      <figure class="tq">
+        <div class="tq-av" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8 9h8M8 12h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <blockquote>״המערכת חסכה לנו שעות על גבי שעות של תמלול ועריכה, והורידה מאיתנו עומס עצום. הערך שלה – קשה לתאר במילים.״</blockquote>
+        <figcaption>מנהל מערכת בחסידות</figcaption>
+      </figure>
+      <figure class="tq">
+        <div class="tq-av" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 6.5C10 5 7 4.6 4 5.3v12.4c3-.7 6-.3 8 1.2 2-1.5 5-1.9 8-1.2V5.3c-3-.7-6-.3-8 1.2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 6.5v12.4" stroke="currentColor" stroke-width="1.8"/></svg></div>
+        <blockquote>״חומרים ישנים וחשובים שחיכו שנים במגירה – יצאו סוף סוף לאור. זיכוי הרבים במלוא מובן המילה.״</blockquote>
+        <figcaption>מכון להוצאה לאור</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
 
 <section class="block vid-band" id="flow">
   <div class="wrap">
