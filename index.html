@@ -668,14 +668,22 @@ html.tm-open{overflow:hidden}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 @media (max-width:900px){.tst-grid{grid-template-columns:1fr}.ql-f{grid-template-columns:1fr 1fr}.ql-f .btn{grid-column:1/-1}}
 @media (max-width:480px){.ql-f{grid-template-columns:1fr}}
-.tq-band{padding-top:30px;padding-bottom:30px}
-.tq-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:900px;margin:0 auto}
-.tq{margin:42px 0 0;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:50px 26px 22px;text-align:center;box-shadow:var(--shadow);position:relative}
-.tq-av{position:absolute;top:-38px;left:50%;transform:translateX(-50%);width:76px;height:76px;border-radius:50%;background:var(--ink);color:#e7c77d;display:grid;place-items:center;border:4px solid #fff;box-shadow:0 0 0 2px var(--gold),0 10px 22px -10px rgba(19,33,74,.6)}
-.tq-av svg{width:34px;height:34px}
-.tq blockquote{margin:0 0 12px;font:500 1.12rem/1.7 'Frank Ruhl Libre',serif;color:var(--ink)}
-.tq figcaption{color:var(--gold);font-weight:800;font-size:.98rem}
-@media (max-width:760px){.tq-grid{grid-template-columns:1fr;gap:10px}}
+.tq-band{background:radial-gradient(ellipse at 50% 0%,#24386f 0%,var(--ink) 60%);color:#fff;padding-top:64px;padding-bottom:64px;position:relative;overflow:hidden}
+.tq-band::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 30%,rgba(231,199,125,.18) 0 2px,transparent 3px),radial-gradient(circle at 80% 70%,rgba(231,199,125,.14) 0 2px,transparent 3px),radial-gradient(circle at 60% 20%,rgba(231,199,125,.12) 0 1.5px,transparent 2.5px);background-size:220px 220px,300px 300px,180px 180px;pointer-events:none}
+.tq-head{text-align:center;max-width:720px;margin:0 auto 10px;position:relative}
+.tq-kick{display:inline-block;color:#e7c77d;font-weight:800;letter-spacing:.06em;font-size:1rem;margin-bottom:8px}
+.tq-head h2{color:#fff;font-size:clamp(2rem,4.6vw,3rem);margin:0 0 8px}
+.tq-head p{color:#c9d2ea;font-size:1.15rem;margin:0}
+.tq-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;max-width:980px;margin:0 auto;position:relative}
+.tq{margin:58px 0 0;background:#fff;border-radius:var(--r-lg);padding:62px 30px 26px;text-align:center;box-shadow:0 30px 60px -28px rgba(0,0,0,.7);position:relative;border-top:6px solid var(--gold);transition:transform .25s}
+.tq:hover{transform:translateY(-4px)}
+.tq-av{position:absolute;top:-48px;left:50%;transform:translateX(-50%);width:96px;height:96px;border-radius:50%;background:linear-gradient(180deg,#24386f,var(--ink));color:#e7c77d;display:grid;place-items:center;border:5px solid #fff;box-shadow:0 0 0 3px var(--gold),0 14px 28px -12px rgba(0,0,0,.7)}
+.tq-av svg{width:42px;height:42px}
+.tq-mark{position:absolute;top:18px;inset-inline-start:22px;font:900 5rem/1 'Frank Ruhl Libre',serif;color:var(--gold);opacity:.22}
+.tq blockquote{margin:0 0 16px;font:600 1.3rem/1.7 'Frank Ruhl Libre',serif;color:var(--ink)}
+.tq figcaption{display:inline-block;color:#7a5410;background:#fbf3df;border:1px solid #ecd9a8;border-radius:999px;padding:.3em 1em;font-weight:800;font-size:1rem}
+.tq-cta{text-align:center;margin-top:34px;position:relative}
+@media (max-width:760px){.tq-grid{grid-template-columns:1fr;gap:6px}.tq{padding:58px 20px 22px}.tq blockquote{font-size:1.15rem}.tq-band{padding-top:48px;padding-bottom:48px}}
 </style>
 </head>
 <body>
@@ -797,20 +805,24 @@ html.tm-open{overflow:hidden}
   <span>בשביל מי שהיום</span><b>מקשיב להקלטה ומקליד</b><b>מתרגם מיידיש לעברית</b><b>עורך ומעמד חוברת כל שבוע</b><b>מנהל ארכיון של שיחות</b>
 </div></div>
 
-<section class="block tq-band" id="says" aria-label="מה אומרים עלינו">
+<section class="block tq-band" id="says" aria-labelledby="saysH">
   <div class="wrap">
+    <div class="tq-head"><span class="tq-kick">✦ לקוחות מספרים ✦</span><h2 id="saysH">הם כבר הצטרפו אלינו.</h2><p>ככה זה נראה אצל מי שכבר עובד עם המערכת:</p></div>
     <div class="tq-grid">
       <figure class="tq">
         <div class="tq-av" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8 9h8M8 12h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
-        <blockquote>״המערכת חסכה לנו שעות על גבי שעות של תמלול ועריכה, והורידה מאיתנו עומס עצום. הערך שלה – קשה לתאר במילים.״</blockquote>
+        <span class="tq-mark" aria-hidden="true">”</span>
+        <blockquote>המערכת חסכה לנו שעות על גבי שעות של תמלול ועריכה, והורידה מאיתנו עומס עצום. הערך שלה – קשה לתאר במילים.</blockquote>
         <figcaption>מנהל מערכת בחסידות</figcaption>
       </figure>
       <figure class="tq">
         <div class="tq-av" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 6.5C10 5 7 4.6 4 5.3v12.4c3-.7 6-.3 8 1.2 2-1.5 5-1.9 8-1.2V5.3c-3-.7-6-.3-8 1.2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 6.5v12.4" stroke="currentColor" stroke-width="1.8"/></svg></div>
-        <blockquote>״חומרים ישנים וחשובים שחיכו שנים במגירה – יצאו סוף סוף לאור. זיכוי הרבים במלוא מובן המילה.״</blockquote>
+        <span class="tq-mark" aria-hidden="true">”</span>
+        <blockquote>חומרים ישנים וחשובים שחיכו שנים במגירה – יצאו סוף סוף לאור. זיכוי הרבים במלוא מובן המילה.</blockquote>
         <figcaption>מכון להוצאה לאור</figcaption>
       </figure>
     </div>
+    <div class="tq-cta"><a class="btn btn-gold" href="#lead">רוצים להצטרף גם? ←</a></div>
   </div>
 </section>
 
